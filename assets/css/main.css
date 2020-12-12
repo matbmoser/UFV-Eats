@@ -1,0 +1,23 @@
+:root{
+    --bg-color: rgb(204, 31, 31);
+}
+
+.dark-mode{
+    background: #212529!important;
+    color: #f8f9fa!important;
+}
+.light-mode{
+    background: #f8f9fa!important;
+    color: #212529!important;
+}
+#demo{
+    display: none!important;
+}
+.cat-opt{
+    width: 100%;
+    margin: 1px 5px 0 5px;
+}
+.logo{
+    width: 12em;
+    margin-left: 8px;
+}
