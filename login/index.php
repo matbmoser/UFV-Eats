@@ -8,8 +8,9 @@
             header("Location:   index.php");
         }
     }
-
-
+    $user = "";
+    $pass = "";
+    require_once("../assets/mod/requestuser.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -60,7 +61,7 @@
     </div>
 
     <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" name="names" placeholder="Email address" required>
+      <input type="email" id="inputEmail" value="<?php echo $user?>" class="form-control" name="names" placeholder="Email address" required>
       <label for="inputEmail">Email address</label>
       <div class="invalid-feedback">
                             Por favor introduza su correo!
@@ -71,7 +72,7 @@
     </div>
 
     <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" name="numbers" placeholder="Password" required>
+      <input type="password" id="inputPassword" value="<?php echo $pass?>" class="form-control" name="numbers" placeholder="Password" required>
       <label for="inputPassword">Password</label>
       <div class="invalid-feedback">
                             Por favor introduza su contraseña!
@@ -83,7 +84,7 @@
         
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" id="remember" value="check"> Remember me
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
@@ -97,12 +98,12 @@
       </div>";
       }
       else if ($_GET['result'] == "0"){
-      echo"<div class='mt-5 alerta alert-danger alert-dismissible fade show' role='alert'>
-        <strong>¡Que pena!</strong> Algo salió mal. Intente hacer el login otra vez.
+      echo"<div class='mt-5 alert alert-danger alert-dismissible fade show' role='alert'>
+        <strong>¡Qué pena!</strong> Algo salió mal. Intente hacer el login otra vez.
         <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
       </div>";
       }else if($_GET['result'] == "3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b"){
-        echo"<div class='mt-5 text-justify alerta alert-warning alert-dismissible fade show'  role='alert' style='text-align: justify;'>
+        echo"<div class='mt-5 text-justify alert alert-warning alert-dismissible fade show'  role='alert' style='text-align: justify;'>
         <strong>¡Error de Seguridad!</strong> Hemos detectado un intento de falla de seguridad en su cuenta!
         La hemos bloqueado por seguridad, vuelva a hacer el login, sentimos las molestias.
         <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
@@ -110,12 +111,14 @@
         session_unset();
         session_destroy();
         session_write_close();
+        setcookie("user", time() - 3600);
+        setcookie("pass", time() - 3600);
       }
       else if($_GET['result'] == "00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219"){
         session_unset();
         session_destroy();
         session_write_close();
-
+        header("Location:   index.php");
       }
       else{
         header("Location:   index.php");
@@ -129,8 +132,8 @@
   </form>
 </main>
 <script src="../assets/bt/js/bootstrap.min.js"></script>
-<script src="../assets/js/main.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="../assets/js/check.js"></script>
     
   </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
-include("../assets/mod/session.php");
-include("../assets/mod/token.php");
+include("../../assets/mod/session.php");
+include("../../assets/mod/token.php");
 
 
 // A partir de aquí puedes usar la variable $_GET con la URL limpia
@@ -19,7 +19,7 @@ include("../assets/mod/token.php");
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/dashboard/">
 
   
-<link href="../assets/bt/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/bt/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -57,7 +57,7 @@ include("../assets/mod/token.php");
   </ul>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="../login/index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219">Sign out</a>
+      <a class="nav-link" href="../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219">Sign out</a>
     </li>
   </ul>
 </header>
@@ -290,7 +290,7 @@ include("../assets/mod/token.php");
 </div>
 
 
-    <script src="../assets/bt/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/bt/js/bootstrap.bundle.min.js"></script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
