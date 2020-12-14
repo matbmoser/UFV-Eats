@@ -1,8 +1,11 @@
 <?php
     if(!empty($_GET)){ //Checkeamos si la variable GET esta puesta
         if(isset($_GET['result'])){
-            if($_GET['result'] == "3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b" || $_GET['result'] == "00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219"){
-            session_start();
+            if($_GET['result'] == "3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b"){
+                setcookie("PHPSESSID","", time() - 3600, "/");
+                setcookie("__chgn", "",time() - 3600, "/");
+                setcookie("__efbr", "",time() - 3600,"/");
+                setcookie("__err__", "TRUE",0.2,"/");
             }
         }else{
             header("Location:   index.php");
@@ -10,6 +13,7 @@
     }
     $user = "";
     $pass = "";
+    require_once("../assets/mod/googleoauth.php");
     require_once("../assets/mod/requestuser.php");
 ?>
 <!doctype html>
@@ -18,16 +22,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.75.1">
-    <title>Floating labels example · Bootstrap</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <meta name="author" content="Mathias Brunkow Moser">
+    <title>Login</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/floating-labels/">
     <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/main.css" rel="stylesheet">
-<link href="../assets/bt/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bt/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -51,15 +54,20 @@
   </head>
 <body>
 <script src="../assets/js/dark-mode.js"></script>
-  <header class="fixed-top d-flex justify-content-end align-items-middle">
-    <button type="button" id="dark-mode" class="m-4 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+  <header class="fixed-top">
+      <div class="container-fluid p-0">
+          <div class="row">
+              <div class="col-4 d-flex justify-content-start align-items-center"><a id="return"class="m-4" href="../"><i style="font-size: 2em" class="far fa-arrow-alt-circle-left mr-1"></i></a></div>
+              <div class="col-8 d-flex justify-content-end"><button type="button" id="dark-mode" class="m-4 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button></div>
+          </div>
+      </div>
     </header>
 <main class="form-signin" >
-  <form  class="needs-validation" id="loginform" method="post" novalidate>
+  <form  class="needs-validation" id="loginform" method="post" autocomplete="off" novalidate>
     <div class="text-center p-5">
       <img id="mylogo" src="../media/img/logo2.png" alt="" width="250" height="65">
     </div>
-
+     <!-- <li><a href="<?php //echo $gpLoginURL; ?>" class="google"><i class="fab fa-google mr-2"></i></i><span>Iniciar sesión con Google</span></a></li>-->
     <div class="form-label-group">
       <input type="email" id="inputEmail" value="<?php echo $user?>" class="form-control" name="names" placeholder="Email address" required>
       <label for="inputEmail">Email address</label>
@@ -108,11 +116,13 @@
         La hemos bloqueado por seguridad, vuelva a hacer el login, sentimos las molestias.
         <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
         </div>";
+
+        session_start();
         session_unset();
         session_destroy();
         session_write_close();
-        setcookie("user", time() - 3600);
-        setcookie("pass", time() - 3600);
+        session_start();
+        header("Location:   index.php");
       }
       else if($_GET['result'] == "00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219"){
         session_unset();
@@ -124,6 +134,14 @@
         header("Location:   index.php");
       }
     }
+    if(isset($_COOKIE["__err__"]) && $_COOKIE["__err__"] == "TRUE"){
+        echo"<div class='mt-5 text-justify alert alert-warning alert-dismissible fade show'  role='alert' style='text-align: justify;'>
+        <strong>¡Error de Seguridad!</strong> Hemos detectado un intento de falla de seguridad en su cuenta!
+        La hemos bloqueado por seguridad, vuelva a hacer el login, sentimos las molestias.
+        <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+        </div>";
+        setcookie("__err__", "",time() - 3600,"/");
+    }
     ?>
         <div id="demo" class='mt-5 alert alert-info d-flex justify-content-center align-items-center fade show' role='alert'>
         <span><strong class='mr-2'>Cargando...</strong></span>
@@ -133,7 +151,17 @@
 </main>
 <script src="../assets/bt/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-<script src="../assets/js/check.js"></script>
-    
+<script src="../assets/js/check.min.js"></script>
+    <style>
+        a.google {
+            border-color: #eee !important;
+            color: #333;
+            color: #fff;
+            background-color: #E44439;
+        }
+        a.google:hover, a.google:active {
+            opacity: 0.8;
+        }
+    </style>
   </body>
 </html>

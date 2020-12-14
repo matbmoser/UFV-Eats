@@ -3,23 +3,6 @@ body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #212529;
-  transition: all .25s ease;
-}
-
-.form-signin {
-  width: 100%;
-  padding: 30px;
-  max-width: 500px;
-  margin: auto;
-  background-color: #f8f9fa;
-  transition: all .25s ease;
-}
 
 .form-label-group {
   position: relative;
