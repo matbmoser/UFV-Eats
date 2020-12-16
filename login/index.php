@@ -13,7 +13,7 @@
     }
     $user = "";
     $pass = "";
-    require_once("../assets/mod/googleoauth.php");
+    //require_once("../assets/mod/googleoauth.php");
     require_once("../assets/mod/requestuser.php");
 ?>
 <!doctype html>
@@ -24,10 +24,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mathias Brunkow Moser">
     <title>Login</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/floating-labels/">
-    <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="../assets/js/libs/jquery/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/main.css" rel="stylesheet">
     <link href="../assets/bt/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +50,7 @@
     <!-- Custom styles for this template -->
     <link href="floating-labels.css" rel="stylesheet">
   </head>
-<body>
+<body class="body">
 <script src="../assets/js/dark-mode.js"></script>
   <header class="fixed-top">
       <div class="container-fluid p-0">
@@ -149,9 +147,9 @@
       </div>
   </form>
 </main>
-<script src="../assets/bt/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-<script src="../assets/js/check.min.js"></script>
+<script src="../assets/bt/js/bootstrap.js"></script>
+<script src="../assets/js/libs/crypto-js/aes.js"></script>
+<script src="../assets/js/check.js"></script>
     <style>
         a.google {
             border-color: #eee !important;

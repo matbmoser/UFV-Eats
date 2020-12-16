@@ -25,11 +25,6 @@ $(function(){
    });
    
    function cambiarModo(){
-           
-           var button = document.getElementById('dark-mode');
-           var element = document.body;
-           var main = document.getElementsByClassName('form-signin')[0];
-           var logo = document.getElementById("mylogo");
 
            if(localStorage.getItem("light") === "true"){
                    document.documentElement.style.setProperty('--bg-color', '#f8f9fa');
@@ -42,9 +37,7 @@ $(function(){
    }
 
    function cambiarBoton(button){
-       var element = document.body;
        var logo = document.getElementById("mylogo");
-
        if(localStorage.getItem("light") === "false"){
             button.classList.remove("btn-outline-dark");
             button.classList.add("btn-outline-light");
