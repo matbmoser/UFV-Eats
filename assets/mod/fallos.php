@@ -16,5 +16,18 @@ function error101(){
     exit;
 }
 
+// ERROR 421
+// ERROR POR FALTA DE SESSIÓN INICIADA
+function error421(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrerr__"] = "421";
+    }else{
+        error101();
+    }
+    exit;
+}
+
 
 ?>

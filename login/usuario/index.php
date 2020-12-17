@@ -1,8 +1,8 @@
 <?php
 $username = "";
 $rol = "1";
-include("../../assets/mod/session.php");
-include("../../assets/mod/token.php");
+require_once("../../assets/mod/session.php");
+require_once("../../assets/mod/token.php");
 require("../../assets/mod/class.Producto.php");
 require("../../assets/mod/class.Usuario.php");
 
@@ -286,6 +286,18 @@ $productos = $producto->getRows($productoCond);
         <ul class="tab__content" style="height: 100%!important">
             <li class="tab__intern active">
                 <div class="content__wrapper">
+                <?php
+                      if($rol != "" && $rol == "0") {
+                            if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "421"){
+                            //Borrar cookie
+                                unset($_SESSION["__usrerr__"]);
+                                echo"<div class='mt-5 alert alert-danger alert-dismissible fade show' role='alert'>
+                                <strong>¡Qué pena!</strong> No se ha podido añadir el producto
+                                <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                </div>";
+                            }
+                        }
+                    ?>
                     <h2 class="text-color">Productos Disponibles</h2>
                     <section class="productos">
                         <div class="tbl-content">
@@ -376,7 +388,7 @@ $productos = $producto->getRows($productoCond);
                     <div style='    padding: 3rem!important;
     background-color: #f2f2f2;
     color: black;' class='container p-4'>
-                        <form class='text-left needs-validation' autocomplete='off'>
+                        <form class='text-left needs-validation' action='../../assets/mod/addProducto.php' method='post' autocomplete='off'>
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Nombre</label>
                             <div class='col-sm-10'>
