@@ -296,6 +296,30 @@ $productos = $producto->getRows($productoCond);
                                 <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                 </div>";
                             }
+                            if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "521"){
+                                //Borrar cookie
+                                    unset($_SESSION["__usrerr__"]);
+                                    echo"<div class='mt-5 alert alert-warning alert-dismissible fade show' role='alert'>
+                                    <strong>Warning</strong> ¡La imagen no tiene una extención válida!
+                                    <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                    </div>";
+                                }
+                            if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "621"){
+                                //Borrar cookie
+                                    unset($_SESSION["__usrerr__"]);
+                                    echo"<div class='mt-5 alert alert-warning alert-dismissible fade show' role='alert'>
+                                    <strong>Warning</strong> ¡La imagen ya existe!
+                                    <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                    </div>";
+                                }
+                            if(isset($_SESSION["__sucess__"]) && $_SESSION["__sucess__"] == "true"){
+                                //Borrar cookie
+                                    unset($_SESSION["__sucess__"]);
+                                    echo"<div class='mt-5 alert alert-success alert-dismissible fade show' role='alert'>
+                                    <strong>¡Producto añadido!</strong> El producto ha sido añadido correctamente! 
+                                    <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                    </div>";
+                                }
                         }
                     ?>
                     <h2 class="text-color">Productos Disponibles</h2>
@@ -388,7 +412,7 @@ $productos = $producto->getRows($productoCond);
                     <div style='    padding: 3rem!important;
     background-color: #f2f2f2;
     color: black;' class='container p-4'>
-                        <form class='text-left needs-validation' action='../../assets/mod/addProducto.php' method='post' autocomplete='off'>
+                        <form class='text-left needs-validation' action='../../assets/mod/addProducto.php' method='post' autocomplete='off' enctype='multipart/form-data'>
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Nombre</label>
                             <div class='col-sm-10'>
@@ -399,21 +423,21 @@ $productos = $producto->getRows($productoCond);
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Precio (€)</label>
                             <div class='col-sm-10'>
-                              <input type='number' min='0.5' max='10000000' name ='precio' class='form-control' id='inputPassword3' placeholder='Precio'>
+                              <input type='number' step='any' min='1' max='10000000' name ='precio' class='form-control' id='inputPassword3' placeholder='Precio'>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Calorías (kcal)</label>
                             <div class='col-sm-10'>
-                              <input type='number' min='1' max='10000000' name ='Calorias' class='form-control' id='inputPassword3' placeholder='Calorias'>
+                              <input type='number' min='1' max='10000000' name ='calorias' class='form-control' id='inputPassword3' placeholder='Calorias'>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Categoria</label>
                             <div class='col-sm-10'>
-                                    <select name='categorias' class='custom-select mr-sm-2' id='inlineFormCustomSelect'>
+                                    <select name='categoria' class='custom-select mr-sm-2' id='inlineFormCustomSelect'>
                                         <option selected>Choose...</option> 
                                         <option value=''>Ninguna</option>
                                         <option value='Vegano'>Vegano</option>
@@ -437,7 +461,7 @@ $productos = $producto->getRows($productoCond);
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Descripción</label>
                             <div class='col-sm-10'>
-                               <textarea class='form-control' name='Descripcion' rows='3' placeholder='Descripción' id='comment'></textarea>
+                               <textarea class='form-control' name='descripcion' rows='3' placeholder='Descripción' id='comment'></textarea>
                             </div>
                           </div>
                           <br>
@@ -445,14 +469,14 @@ $productos = $producto->getRows($productoCond);
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Imagen</label>
                             <div class='col-sm-10'>
                           <div class='custom-file'>
-                          <input type='file' class='custom-file-input' id='customFile'>
+                          <input type='file' class='custom-file-input' name='file' id='customFile'>
                          </div>
                          </div> 
                         </div>
                         <br>
                           <div class='form-group row'>
                             <div class='col-sm-10' style='float: right'>
-                              <button type='submit' class='btn btn-primary'>Sign in</button>
+                              <button type='submit' name='submit' class='btn btn-primary'>Sign in</button>
                             </div>
                           </div>
                         </form>
