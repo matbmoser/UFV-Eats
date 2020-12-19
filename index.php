@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link href="../css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-	<link href="../../assets/bt/css/bootstrap.min.css" rel="stylesheet">
-	<script src="../../assets/bt/js/bootstrap.min.js"></script>
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	<link href="assets/bt/css/bootstrap.min.css" rel="stylesheet">
+	<script src="assets/bt/js/bootstrap.min.js"></script>
 	<title>Ufveats</title>
 
 </head>
