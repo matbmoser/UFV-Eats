@@ -1,14 +1,32 @@
 :root{
-    --bg-color: rgb(204, 31, 31);
+    --bg-color: #212529;
+    --color: #f8f9fa;
 }
-
-.dark-mode{
-    background: #212529!important;
-    color: #f8f9fa!important;
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:var(--bg-color)!important;
+    color: var(--color)!important;
+    transition: all .25s ease;
 }
-.light-mode{
-    background: #f8f9fa!important;
-    color: #212529!important;
+.form-signin {
+    width: 100%;
+    padding: 30px;
+    max-width: 500px;
+    margin: auto;
+    background-color: var(--color)!important;
+    color: var(--bg-color)!important;
+    transition: all .25s ease;
+}
+#return{
+    color: var(--color)!important;
+    transition: all .25s ease;
+}
+#return:hover{
+    transition: all .25s ease;
+    opacity: 0.6;
 }
 #demo{
     display: none!important;
