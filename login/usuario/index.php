@@ -246,35 +246,100 @@ $productos = $producto->getRows($productoCond);
         .modified{
             display: none;
         }
+        .logo{
+    width: 12em;
+    margin-left: 8px;
+}
+
+.navbar-brand>img{
+    height: 50px;
+    margin-left:10px;
+}
+
+.fa-search{
+    color: black;
+}
+header{
+    background: var(--bg-color)!important;
+    color: var(--color)!important;
+}
+.input-group{
+    margin-left: 19%;
+}
+
+.container-box
+{
+    display:inline-block; 
+    padding:10px; 
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid #fff; 
+    position: fixed;
+    top: 55%;
+    left: 0;
+}
+
+.modal-content
+{
+    background: rgba(255, 255, 255, .7);    
+}
+
+.rotated
+{
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    transform-origin: top left;  
+}
+
+.botones{
+    float: right;
+}
+
+.modal-header .close{
+    padding:0;
+    margin:0;
+}
+.logout{
+    background:var(--bg-color)!important; color:var(--color);
+    border-color:var(--color);
+}
+.logout:hover{
+    background:var(--color)!important; color:var(--bg-color);
+}
     </style>
 
 </head>
 <body>
 <script src="../../assets/js/dark-mode.js"></script>
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
-            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="d-flex justify-content-end align-items-center">
+<header class="header">
+    <nav class="navbar navbar-expand-lg sticky-top  shadow">
+      <a class="navbar-brand" href="#">
+      	<img id="mylogo" src="../../media/img/logo1.png">
+      </a>
+
+	<div class="d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="nav navbar-nav">
+                <div class="d-flex justify-content-end align-items-center">
             <div class="m-2">
             <?php
             if ($username != "") {
-                echo "<span style='color:white'>Welcome <strong>" . $username . "</strong>!</span>";
+                echo "<span>Welcome <strong>" . $username . "</strong>!</span>";
             } else {
-                echo "<a class='nav-link'  href='../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'><span style='color:white'><strong>Log in</strong></span></a>";
+                echo "<a class='nav-link'  href='../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'><strong>Log in</strong></span></a>";
             }
             ?>
             </div>
             <div>
-            <a style="color: white" class="nav-link"
-               href="../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219">Sign out</a>
+            <button class="logout btn btn-light nav-link" onclick="window.location.href= '../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'"><i class="fas fa-sign-out-alt"></i> Sign out</button>
             </div>
         </div>
-        <!--<li class="nav-item text-nowrap">
-        <button type="button" id="dark-mode" class="m-4 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button></div>
-        </li>-->
+        <li class="nav-item">
+            	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+          	</li>
+        </ul>
+    </div>
+   </nav>
 </header>
 <div class="p-0 container-fluid">
     <section class="wrapper">

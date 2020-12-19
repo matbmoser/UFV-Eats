@@ -63,7 +63,7 @@
 <main class="form-signin" >
   <form  class="needs-validation" id="loginform" method="post" autocomplete="off" novalidate>
     <div class="text-center p-5">
-      <img id="mylogo" src="../media/img/logo2.png" alt="" width="250" height="65">
+      <img id="logo" src="../media/img/logo2.png" alt="" width="250" height="65">
     </div>
      <!-- <li><a href="<?php //echo $gpLoginURL; ?>" class="google"><i class="fab fa-google mr-2"></i></i><span>Iniciar sesión con Google</span></a></li>-->
     <div class="form-label-group">
