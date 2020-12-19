@@ -275,11 +275,14 @@ $(document).ready(function(){
 	</div>
 	<div class="container-all" id="<?php echo $res['nombre']; ?>">
 		<div class="popup">
-			<div class="img"></div>
+			<div class="img"><img class="dip1" src="imagenes/<?php echo $res['imagen']; ?>"/></div>
 			<div class="container-text">
-				<h1><?php echo $res['nombre']; ?></h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam esse illum exercitationem perferendis accusamus, possimus sed molestiae accusantium necessitatibus neque sit aspernatur</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus facere, sequi. Beatae recusandae, officiis sapiente amet quod vero est vel.</p>
+				<div class="nom">
+						<h1 class="neg"><?php echo $res['nombre']; ?></h1>
+				</div>				
+				<p><h5 class="neg">Descripción:</h5><?php echo $res['descripcion']; ?></p>
+				<p><h5 class="neg">Ingredientes:</h5><?php echo $res['ingredientes']; ?></p>
+				<p><h5 class="neg">Precio:</h5><?php echo $res['precio']; ?>€</p>
 			</div>
 			<a href="#" class="btn-close-popup">X</a>
 		</div>
