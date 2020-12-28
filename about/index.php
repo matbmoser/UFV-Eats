@@ -85,7 +85,7 @@
             <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
             <i class="iconos fas fa-industry"></i>
             <i class="iconos fas fa-cubes"></i>
-            <p>Jefe Proyecto y Desarrolladores</p>
+            <p>Backend</p>
             </div>
             <i class="cuadroderizq fas fa-angle-right"></i>
             <i class="cuadroder fas fa-angle-right"></i>
@@ -113,9 +113,42 @@
               </div><div class="team-item col-lg-3 col-md-6 slideanim">
               <a href="#" target="_blank">
                   <div class="item-image">
-                      <img src="../media/img/aina.jpg" alt="aina" title="">
+                      <img src="../media/img/rafa.jpg" alt="rafa" title="">
                   </div>
                   </a>
+                  <div class="item-caption py-3">
+                      <div class="item-name px-2">
+                          <p class="mbr-fonts-style display-5">
+                          Rafael Camarero Rodriguez</p>
+                      </div>
+                      <div class="item-role px-2">
+                          <p>Desarrollador</p>
+                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="agrupacion">
+          <div class="row slideanim">
+            <div class="col">
+            <i class="cuadroizq fas fa-angle-right"></i>
+            <i class="cuadroizqder fas fa-angle-right"></i>
+            <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
+            <i class="iconos fas fa-people-carry"></i>
+            <i class="iconos fas fa-tasks"></i>
+            <p>Frontend</p>
+            </div>
+            <i class="cuadroderizq fas fa-angle-right"></i>
+            <i class="cuadroder fas fa-angle-right"></i>
+            </div>
+          </div>
+          <div class="row media-row slideanim">
+            <div class="team-item col-lg-3 col-md-6 FadeLeft">
+                  <div class="item-image">
+                      <img src="../media/img/aina.jpg" alt="aina" title="">
+                  </div>
                   <div class="item-caption py-3">
                       <div class="item-name px-2">
                           <p class="mbr-fonts-style display-5">
@@ -127,41 +160,7 @@
                       </div>
                   </div>
               </div>
-            </div>
-          </div>
-          <div class="agrupacion">
-          <div class="row slideanim">
-            <div class="col">
-            <i class="cuadroizq fas fa-angle-right"></i>
-            <i class="cuadroizqder fas fa-angle-right"></i>
-            <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
-            <i class="iconos fas fa-people-carry"></i>
-            <i class="iconos fas fa-tasks"></i>
-            <p>Desarrolladores</p>
-            </div>
-            <i class="cuadroderizq fas fa-angle-right"></i>
-            <i class="cuadroder fas fa-angle-right"></i>
-            </div>
-          </div>
-          <div class="row media-row slideanim">
-          <div class="team-item col-lg-3 col-md-6 FadeRight">
-                  <a href="#" target="_blank">
-                  <div class="item-image">
-                      <img src="../media/img/rafa.jpg" alt="rafa" title="">
-                  </div>
-                  </a>
-                  <div class="item-caption py-3">
-                      <div class="item-name px-2">
-                          <p class="mbr-fonts-style display-5">
-                          Rafael Camarero Rodríguez</p>
-                      </div>
-                      <div class="item-role px-2">
-                          <p>Desarrollador</p>
-                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
-                      </div>
-                  </div>
-              </div>
-            <div class="team-item col-lg-3 col-md-6 FadeLeft">
+              <div class="team-item col-lg-3 col-md-6 FadeRight">
                   <div class="item-image">
                       <img src="../media/img/charly.jpg" alt="charly" title="">
                   </div>
