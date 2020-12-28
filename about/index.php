@@ -55,14 +55,14 @@
     </p>
     </div>
     <div class="mbr-text col-10 col-md-9 mbr-fonts-style display-7">
-            <blockquote><p>La creacion de la página web permite tanto a los profesores como 
-        a los alumnos y personas que vengan de visita a la Universidad Francisco de Vitoria 
+            <blockquote><p>La creacion de la <strong>página web</strong> permite tanto a los profesores como 
+        a los alumnos y personas que vengan de visita a la <strong>Universidad Francisco de Vitoria</strong> 
         conocer los menús que se sirven en la cafetería. Aunque la finalidad no es únicamente 
-        la de mostrar el menú del día, que puede facilitar en gran medida la decisión de las 
-        personas sobre lo que quieren comer, sino que sobre todo está destinado a ayudar a 
-        aquellos con alergias alimenticias intolerancias o gente que sigue algún tipo de dieta 
-        específica, que son los usuarios para los que realmente está destinada nuestra 
-        página web.</p>
+        la de mostrar <strong>el menú del día</strong>, que puede facilitar en gran medida la decisión de las 
+        personas sobre lo que quieren comer, sino que sobre todo está <strong>destinado a ayudar</strong> a 
+        aquellos con <strong>alergias alimenticias, intolerancias</strong> o gente que sigue algún tipo de dieta 
+        específica, que son <strong>los usuarios</strong> para los que realmente está destinada <strong>nuestra 
+        página web.</strong></p>
         </blockquote>
     </div>
    </div>
