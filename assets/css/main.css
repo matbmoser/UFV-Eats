@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 :root{
     --bg-color: #212529;
     --color: #f8f9fa;
@@ -13,6 +14,87 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
 }
+.c7{
+    height: 75vh;
+    padding: 0!important;
+}
+.soft{
+    background: #2929294a;
+    height: inherit;
+    z-index: 1000;
+}
+.c2{
+    height: 100%;
+}
+.main {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+.img1{
+    background-image: url("../../media/img/fondo.jpg")!important;
+}
+.maintitle {
+    letter-spacing: 7px;
+    font-size: 5em;
+    color: white;
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+.agrupacion:hover .item-image{
+    filter: grayscale(0);
+    cursor: pointer;
+    transition: all .25s ease-in;
+  }
+  .agrupacion .row:nth-child(1){
+    cursor: pointer;
+  }
+  .agrupacion .row:nth-child(1):hover{
+    transition: all .25s ease;
+    padding: 0 10px;
+  }
+  agrupacion:hover .media-row:hover .item-image{
+  
+    filter: grayscale(1);
+    transition: all .25s ease-in;
+  }
+  .agrupacion:hover .media-row:hover .item-image:hover{
+    filter: grayscale(0);
+    transition: all .25s ease-in;
+  }
+  .agrupacion .row:hover .cuadroizq{color: black;}
+  .agrupacion .row:hover .cuadroderizq{color: black;}
+  .agrupacion .row:hover .cuadroder{color: black;}
+  .agrupacion .row:hover .cuadroizqder{color: black;}
+  
+  .agrupacion .cuadroizq{
+    transform: rotate(-135deg);
+    font-size: 3em;
+    clear: none;
+    color: white;
+    float: left;
+  }
+  .agrupacion .cuadroizqder{
+    transform: rotate(-45deg);
+    font-size: 3em;
+    clear: none;
+    float: right;
+    color: white;
+  }
+  .agrupacion .cuadroderizq{
+    transform: rotate(+135deg);
+    font-size: 3em;
+    clear: none; 
+    color: white;
+    float: left;
+  }
+  .agrupacion .cuadroder{
+    float: right;
+    transform: rotate(+45deg);
+    font-size: 3em;
+    clear: none;
+    color: white;
+  }    
 .form-signin {
     width: 100%;
     padding: 30px;

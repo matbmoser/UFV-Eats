@@ -190,9 +190,6 @@ class Usuario{
      */
     function checkUser($userData = array()){
         if(!empty($userData)){
-            // Check whether user data already exists in database with same oauth info
-            $prevQuery = "SELECT * FROM ".$this->table." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_uid = '".$userData['oauth_uid']."'";
-            $prevResult = $this->db->query($prevQuery);
             
             // Check whether user data already exists in database with same email
             $prevQuery2 = "SELECT * FROM ".$this->table." WHERE email != '' AND email = '".$userData['email']."'";
@@ -222,7 +219,7 @@ class Usuario{
                 }
 
                 //prepare sql query
-                $query = "UPDATE ".$this->table." SET oauth_provider = '".$userData['oauth_provider']."', oauth_uid = '".$userData['oauth_uid']."', modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
+                $query = "UPDATE ".$this->table." SET modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
     
                 //update data
                 $update = $this->db->query($query);

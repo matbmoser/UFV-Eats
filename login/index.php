@@ -17,7 +17,7 @@
     require_once("../assets/mod/requestuser.php");
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,7 +94,9 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-    
+    <div class="mb-1 form-label-group">
+      <p class="mt-3">¿Todavía no tienes una cuenta? <a href="registro/">Registrate</a></p>
+    </div>
     <?php
     if(isset($_GET['result'])){
       if($_GET['result'] == "1"){

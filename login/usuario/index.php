@@ -16,7 +16,6 @@ if(!empty($username)){
         $miusuario["name"] = $usuario->name; 
         $miusuario["ID"] = $usuario->ID;
         $miusuario["userid"] = $usuario->userid;
-        $miusuario["oauth_provider"] = $usuario->oauth_provider;
         $miusuario["email"] = $usuario->email;
         switch($rol){
             case "0":
@@ -50,7 +49,7 @@ $productos = $producto->getRows($productoCond);
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,14 +74,14 @@ $productos = $producto->getRows($productoCond);
                 font-size: 3.5rem;
             }
         }
-        .body{
-            color:;
-        }
         .text-color {
             color: #ffffff;
             transition-duration: .5s;
         }
-
+        body{
+            background-color: #212529!important;   
+            color:#f8f9fa!important; 
+        }
         .wrapper {
             margin: 0 auto;
             background: #212529;
@@ -278,10 +277,6 @@ header{
     left: 0;
 }
 
-.modal-content
-{
-    background: rgba(255, 255, 255, .7);    
-}
 
 .rotated
 {
@@ -317,11 +312,9 @@ header{
       <a class="navbar-brand" href="#">
       	<img id="mylogo" src="../../media/img/logo1.png">
       </a>
-
-	<div class="d-flex justify-content-end" id="navbarSupportedContent">
-        <ul class="nav navbar-nav">
-                <div class="d-flex justify-content-end align-items-center">
-            <div class="m-2">
+    <div class="w-100 d-flex justify-content-end">
+        <ul class="nav navbar-nav align-items-center">
+        <li class="nav-item">
             <?php
             if ($username != "") {
                 echo "<span>Welcome <strong>" . $username . "</strong>!</span>";
@@ -329,12 +322,11 @@ header{
                 echo "<a class='nav-link'  href='../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'><strong>Log in</strong></span></a>";
             }
             ?>
-            </div>
-            <div>
-            <button class="logout btn btn-light nav-link" onclick="window.location.href= '../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'"><i class="fas fa-sign-out-alt"></i> Sign out</button>
-            </div>
-        </div>
-        <li class="nav-item">
+        </li>
+            <li class="nav-item">
+            <button type="button" class="ml-3 logout btn btn-light" onclick="window.location.href= '../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'"><i class="fas fa-sign-out-alt"></i> <span>Sign out</span></button>
+            </li>
+            <li class="nav-item mr-2">
             	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
           	</li>
         </ul>
@@ -481,29 +473,29 @@ header{
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Nombre</label>
                             <div class='col-sm-10'>
-                              <input type='text' name='nombre' class='form-control' id='inputEmail3' placeholder='Nombre'>
+                              <input type='text' name='nombre' class='form-control' id='inputEmail3' placeholder='Nombre' required>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Precio (€)</label>
                             <div class='col-sm-10'>
-                              <input type='number' step='any' min='1' max='10000000' name ='precio' class='form-control' id='inputPassword3' placeholder='Precio'>
+                              <input type='number' step='any' min='1' max='10000000' name ='precio' class='form-control' id='inputPassword3' placeholder='Precio' required>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Calorías (kcal)</label>
                             <div class='col-sm-10'>
-                              <input type='number' min='1' max='10000000' name ='calorias' class='form-control' id='inputPassword3' placeholder='Calorias'>
+                              <input type='number' min='1' max='10000000' name ='calorias' class='form-control' id='inputPassword3' placeholder='Calorias' required>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Categoria</label>
                             <div class='col-sm-10'>
-                                    <select name='categoria' class='custom-select mr-sm-2' id='inlineFormCustomSelect'>
-                                        <option selected>Choose...</option> 
+                                    <select name='categoria' class='custom-select mr-sm-2' id='inlineFormCustomSelect' required>
+                                        <option selected>Elige...</option> 
                                         <option value=''>Ninguna</option>
                                         <option value='Vegano'>Vegano</option>
                                         <option value='Vegetariano'>Vegetariano</option>
@@ -519,14 +511,14 @@ header{
                          <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Ingredientes</label>
                             <div class='col-sm-10'>
-                              <input type='text' name='ingredientes' class='form-control' id='inputEmail3' placeholder='Ingredientes'>
+                              <input type='text' name='ingredientes' class='form-control' id='inputEmail3' placeholder='Ingredientes' required>
                             </div>
                           </div>
                           <br>
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Descripción</label>
                             <div class='col-sm-10'>
-                               <textarea class='form-control' name='descripcion' rows='3' placeholder='Descripción' id='comment'></textarea>
+                               <textarea class='form-control' name='descripcion' rows='3' placeholder='Descripción' id='comment' required></textarea>
                             </div>
                           </div>
                           <br>
@@ -534,7 +526,7 @@ header{
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Imagen</label>
                             <div class='col-sm-10'>
                           <div class='custom-file'>
-                          <input type='file' class='custom-file-input' name='file' id='customFile'>
+                          <input type='file' class='custom-file-input' name='file' id='customFile' required>
                          </div>
                          </div> 
                         </div>
@@ -559,7 +551,6 @@ header{
                     <div class='container'>
                     <ul style='list-style: none;text-align: left'>
                                            <li><strong>ID</strong>: ".$miusuario['ID']."</li>
-                                            <li><strong>Proveedor</strong>: " . $miusuario['oauth_provider'] . "</>
                                             <li><strong>Nombre</strong>: " . $miusuario['name'] . "</li>
                                             <li><strong>Username</strong>: " . $miusuario['userid'] . " </li>
                                             <li><strong>Email</strong>: " . $miusuario['email'] . "</li>
@@ -583,13 +574,11 @@ header{
                                     <thead class='tbl-header'>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Proveedor</th>
                                         <th>Nombre</th>
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Rol</th>
-                                        ";if($rol != '' && $rol == '0') {
-                                        echo '<th></th>';}
+                                        ";
                                         echo"<th>Created</th>
                                         <th>Modified</th>
                                         ";if($rol != '' && $rol == '0') {
@@ -602,7 +591,6 @@ header{
                                 foreach ($usuarios as $usuario){
                                     echo '<tr>
                                         <td>'.$usuario['ID'].'</td>
-                                        <td>'.$usuario['oauth_provider'].'</td>
                                         <td>'.$usuario['name'].'</td>
                                         <td>'.$usuario['userid'].' </td>
                                         <td>'.$usuario['email'].'</td>
@@ -656,7 +644,6 @@ header{
                                 <div class='modal-body'>
                                         <ul style='list-style: none;text-align: left'>
                                             <li><strong>ID</strong>: ".$usuario['ID']."</li>
-                                            <li><strong>Proveedor</strong>: " . $usuario['oauth_provider'] . "</>
                                             <li><strong>Nombre</strong>: " . $usuario['name'] . "</li>
                                             <li><strong>Username</strong>: " . $usuario['userid'] . " </li>
                                             <li><strong>Email</strong>: " . $usuario['email'] . "</li>";
