@@ -94,7 +94,7 @@
           <div class="row media-row slideanim">
               
             <div class="team-item col-lg-3 col-md-6 FadeLeft">
-                <a href="http://fabdefab.com" target="_blank">
+                <a href="#" target="_blank">
                   <div class="item-image">
                       <img src="../media/img/mathias.jpg" alt="mathias" title="">
                   </div>
@@ -111,7 +111,7 @@
                   </div>
                   
               </div><div class="team-item col-lg-3 col-md-6 slideanim">
-              <a href="https://exarchitects.com" target="_blank">
+              <a href="#" target="_blank">
                   <div class="item-image">
                       <img src="../media/img/aina.jpg" alt="aina" title="">
                   </div>
@@ -123,23 +123,6 @@
                       </div>
                       <div class="item-role px-2">
                           <p>SM & Desarrollador</p>
-                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="team-item col-lg-3 col-md-6 FadeRight">
-                  <a href="https://flowalistik.com" target="_blank">
-                  <div class="item-image">
-                      <img src="../media/img/rafa.jpg" alt="rafa" title="">
-                  </div>
-                  </a>
-                  <div class="item-caption py-3">
-                      <div class="item-name px-2">
-                          <p class="mbr-fonts-style display-5">
-                          Rafael Camarero Rodríguez</p>
-                      </div>
-                      <div class="item-role px-2">
-                          <p>Desarrollador</p>
                           <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
                       </div>
                   </div>
@@ -161,7 +144,23 @@
             </div>
           </div>
           <div class="row media-row slideanim">
-              
+          <div class="team-item col-lg-3 col-md-6 FadeRight">
+                  <a href="#" target="_blank">
+                  <div class="item-image">
+                      <img src="../media/img/rafa.jpg" alt="rafa" title="">
+                  </div>
+                  </a>
+                  <div class="item-caption py-3">
+                      <div class="item-name px-2">
+                          <p class="mbr-fonts-style display-5">
+                          Rafael Camarero Rodríguez</p>
+                      </div>
+                      <div class="item-role px-2">
+                          <p>Desarrollador</p>
+                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
+                      </div>
+                  </div>
+              </div>
             <div class="team-item col-lg-3 col-md-6 FadeLeft">
                   <div class="item-image">
                       <img src="../media/img/charly.jpg" alt="charly" title="">
