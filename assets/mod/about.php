@@ -83,8 +83,8 @@
          </style>
     </head>
     <body>
-        <img src="primerafotoabout.png" alt="primerafotoabout" width="100%">
-        <img src="about-us1.jpg" alt="about-us1" width="100%">
+        <img src="../../media/img/primerafotoabout.png" alt="primerafotoabout" width="100%">
+        <img src="../../media/img/about-us1.jpg" alt="about-us1" width="100%">
         <section class="texto">
             <p>Nuestra Mision</p>
             <h1>La creacion de la  página web  permite tanto a los profesores como a los alumnos y personas que vengan de visita a la Universidad Francisco de
@@ -92,11 +92,11 @@
                 en gran medida la decisión de las personas sobre lo que quieren comer, sino que sobre todo está destinado a ayudar a aquellos con alergias alimenticias
                 intolerancias o gente que sigue algún tipo de dieta específica, que son los usuarios para los que realmente está destinada nuestra página web.</h1>
         </section>
-        <img src="integrantes.JPG" alt="integrantes" width="100%">
+        <img src="../../media/img/integrantes.JPG" alt="integrantes" width="100%">
         <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src="mathias.jpg" alt="Mathias" style="width:100%">
+                        <img src="../../media/img/mathias.jpg" alt="Mathias" style="width:100%">
                             <div class="container">
                                 <h2>Mathias Brunkow Moser</h2>
                                 <p class="title">PO & Desarrollador</p>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src="aina.jpg" alt="Aina" style="width:100%">
+                        <img src="../../media/img/aina.jpg" alt="Aina" style="width:100%">
                         <div class="container">
                             <h2>Aina Mora Columbrans</h2>
                             <p class="title">SM & Desarrollador</p>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src="rafa.jpg" alt="Rafael" style="width:100%">
+                        <img src="../../media/img/rafa.jpg" alt="Rafael" style="width:100%">
                         <div class="container">
                             <h2>Rafael Camarero Rodríguez</h2>
                             <p class="title">Desarrollador</p>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src="charly.jpg" alt="Carlos" style="width:100%">
+                        <img src="../../media/img/charly.jpg" alt="Carlos" style="width:100%">
                         <div class="container">
                             <h2>Carlos Simon Hernandez</h2>
                             <p class="title">Desarrollador</p>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="column">
                     <div class="card">
-                        <img src="martin.jpg" alt="Carlos" style="width:100%">
+                        <img src="../../media/img/martin.jpg" alt="Carlos" style="width:100%">
                         <div class="container">
                             <h2>Martin Diz Figueroa</h2>
                             <p class="title">Desarrollador</p>
