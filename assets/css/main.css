@@ -21,3 +21,57 @@
     width: 12em;
     margin-left: 8px;
 }
+
+.navbar-brand>img{
+    height: 70px;
+}
+
+.fa-search{
+    color: black;
+}
+
+.input-group{
+    margin-left: 19%;
+}
+
+.container 
+{
+    height: 100%;
+    width:100%;
+
+    background-size: cover;
+    background-repeat:no-repeat;    
+}
+.container-box
+{
+    display:inline-block; 
+    padding:10px; 
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid #fff; 
+    position: fixed;
+    top: 55%;
+    left: 0;
+}
+
+.modal-content
+{
+    background: rgba(255, 255, 255, .7);    
+}
+
+.rotated
+{
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    transform-origin: top left;  
+}
+
+.botones{
+    float: right;
+}
+
+.modal-header .close{
+    padding:0;
+    margin:0;
+}
