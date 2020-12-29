@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 :root{
     --bg-color: #212529;
     --color: #f8f9fa;
@@ -32,7 +34,7 @@ body {
     margin: 0;
 }
 .img1{
-    background-image: url("../../media/img/fondo.jpg")!important;
+    background-image: url("../../media/img/ciudad.jpeg")!important;
 }
 #guardar{
     display:none;
@@ -41,8 +43,20 @@ body {
     letter-spacing: 7px;
     font-size: 5em;
     color: white;
-    font-family: 'Open Sans';
-    font-weight: 400;
+    font-family: 'Bebas Neue';
+}
+.iconos{
+  padding: 20px;
+  font-size: 3em;
+}
+.subtitles p{
+  font-size: 3em;
+  text-align: center;
+}
+.agrupacion .item-image{
+  filter: grayscale(1);
+  cursor: pointer;
+  transition: all .25s ease-in;
 }
 .agrupacion:hover .item-image{
     filter: grayscale(0);
@@ -56,7 +70,7 @@ body {
     transition: all .25s ease;
     padding: 0 10px;
   }
-  agrupacion:hover .media-row:hover .item-image{
+  .agrupacion:hover .media-row:hover .item-image{
   
     filter: grayscale(1);
     transition: all .25s ease-in;

@@ -36,7 +36,7 @@
             <div class="soft">
                 <div class="c2 d-flex align-items-center fadeIn">
                     <div class="row" style="display: contents;">
-                        <div class="col main expand"><span class="maintitle">Nosotros</span>
+                        <div class="col main expand"><span class="maintitle">NOSOTROS</span>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
     </p>
     </div>
     <div class="mbr-text col-10 col-md-9 mbr-fonts-style display-7">
-            <blockquote><p>La creacion de la <strong>página web</strong> permite tanto a los profesores como 
+            <blockquote><p>La creacion de esta <strong>página web</strong> permite tanto a los profesores como 
         a los alumnos y personas que vengan de visita a la <strong>Universidad Francisco de Vitoria</strong> 
         conocer los menús que se sirven en la cafetería. Aunque la finalidad no es únicamente 
         la de mostrar <strong>el menú del día</strong>, que puede facilitar en gran medida la decisión de las 
@@ -83,8 +83,8 @@
             <i class="cuadroizq fas fa-angle-right"></i>
             <i class="cuadroizqder fas fa-angle-right"></i>
             <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
-            <i class="iconos fas fa-industry"></i>
-            <i class="iconos fas fa-cubes"></i>
+            <i class="iconos fab fa-php"></i>
+            <i class="iconos fab fa-js"></i>
             <p>Backend</p>
             </div>
             <i class="cuadroderizq fas fa-angle-right"></i>
@@ -136,8 +136,8 @@
             <i class="cuadroizq fas fa-angle-right"></i>
             <i class="cuadroizqder fas fa-angle-right"></i>
             <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
-            <i class="iconos fas fa-people-carry"></i>
-            <i class="iconos fas fa-tasks"></i>
+            <i class="iconos fab fa-html5"></i>
+            <i class="iconos fab fa-css3"></i>
             <p>Frontend</p>
             </div>
             <i class="cuadroderizq fas fa-angle-right"></i>
