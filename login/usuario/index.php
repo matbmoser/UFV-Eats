@@ -312,7 +312,7 @@ header{
     <script src="../../assets/js/dark-mode.js"></script>
 <header class="header">
     <nav class="navbar navbar-expand-lg sticky-top  shadow">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="../../">
       	<img id="mylogo" src="../../media/img/logo1.png">
       </a>
     <div class="w-100 d-flex justify-content-end">
@@ -820,7 +820,6 @@ if($rol != '' && $rol == '0') {
 }
 ?>
 <script>
-
     $(function () {
         $(".add").click(function () {
             $("#productoadd").toggle("slow");

@@ -52,5 +52,6 @@ $clav1 = mysqli_real_escape_string($conexion,utf8_decode($_POST['inputPassword1'
     mysqli_select_db($conexion, $db_name);
     mysqli_query($conexion, $insert_value);
   }
-echo $errors;
+    echo $errors;
+
 ?>

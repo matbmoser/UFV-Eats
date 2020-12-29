@@ -221,7 +221,7 @@ var hashsha256 = function sha256(ascii) {
 function fin(){
     userid = document.getElementById('inputusrid').value;
     email = document.getElementById('inputEmail').value;
-    message = document.getElementById('inputusrid').value;
+    message = document.getElementById('inputPassword').value;
     pass = hashsha256(message);
     token = hashsha256(email+pass);
     window.location = "../usuario/index.php?id="+ userid + "&token=" + token;
