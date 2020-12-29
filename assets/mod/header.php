@@ -25,14 +25,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-	<div class="input-group md-form form-sm form-2">
-  			<input required name="PalabraClave" class="form-control my-0 py-1" type="text" placeholder="Busqueda producto" aria-label="Search">
-  		<div class="input-group-append">
-    		<span class="input-group-text" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
- 		</div>
-	</div>
-
 	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <form class="form-inline mx-auto my-2 w-50" action="busquedabbdd.php">
+            <input class="form-control mr-sm-1 w-75" name="producto" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light" type="submit" value="Submit"><i class="fas fa-search"></i></button>
+        </form>
         <ul class="nav navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
