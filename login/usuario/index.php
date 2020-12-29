@@ -53,11 +53,11 @@ $productos = $producto->getRows($productoCond);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard Template · Bootstrap</title>
+    <title>Usuario</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/main.css" rel="stylesheet">
-    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../media/favicon.ico" type="image/x-icon">
     <link href="../../assets/bt/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -307,7 +307,9 @@ header{
 
 </head>
 <body>
-<script src="../../assets/js/dark-mode.js"></script>
+<?php include("../../assets/mod/getproductos.php");?>
+
+    <script src="../../assets/js/dark-mode.js"></script>
 <header class="header">
     <nav class="navbar navbar-expand-lg sticky-top  shadow">
       <a class="navbar-brand" href="#">
@@ -386,6 +388,14 @@ header{
                                     <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                     </div>";
                                 }
+                                if(isset($_SESSION["__sucess__"]) && $_SESSION["__sucess__"] == "false"){
+                                    //Borrar cookie
+                                        unset($_SESSION["__sucess__"]);
+                                        echo"<div class='mt-5 alert alert-success alert-dismissible fade show' role='alert'>
+                                        <strong>¡Producto borrado!</strong> El producto ha sido borrado correctamente! 
+                                        <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                        </div>";
+                                    }
                                 if(isset($_SESSION["__usrsucess__"]) && $_SESSION["__usrsucess__"] == "true"){
                                     //Borrar cookie
                                         unset($_SESSION["__usrsucess__"]);
@@ -394,6 +404,14 @@ header{
                                         <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                         </div>";
                                     }
+                                    if(isset($_SESSION["__usrsucess__"]) && $_SESSION["__usrsucess__"] == "false"){
+                                        //Borrar cookie
+                                            unset($_SESSION["__usrsucess__"]);
+                                            echo"<div class='mt-5 alert alert-success alert-dismissible fade show' role='alert'>
+                                            <strong>¡Usuario Borrado!</strong> El listado ha sido actualizado! 
+                                            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                            </div>";
+                                        }
                         }
                     ?>
                     <h2 class="text-color">Productos Disponibles</h2>
@@ -466,7 +484,7 @@ header{
                                 </div>
                                 <div class='modal-footer'>
                                     <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
-                                    <button type='button' class='btn btn-danger'>Borrar</button>
+                                    <button type='button' onclick=\"borrarproducto('".$producto['id']."')\" class='btn btn-danger'>Borrar</button>
                                 </div>
                             </div>
                         </div>
@@ -619,31 +637,38 @@ header{
                                             case "0":
                                                 echo "<span id='rol".$usuario['ID']."'>Administrador</span>";
                                                 if($rol != '' && $rol == '0') {
-                                                echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                echo "<button type='button' data-rol='".$usuario['rol']."' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                                 <i class='fas fa-pen-square'></i></button>";
                                                 }
                                                 break;
                                             case "1":
                                                 echo "<span id='rol".$usuario['ID']."'>Usuario</span>";
                                                 if($rol != '' && $rol == '0') {
-                                                    echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                    echo "<button type='button'data-rol='".$usuario['rol']."' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                                     <i class='fas fa-pen-square'></i></button>";
                                                     }
                                                 break;
                                             case "2":
                                                 echo "<span id='rol".$usuario['ID']."'>Especialista</span>";
                                                 if($rol != '' && $rol == '0') {
-                                                    echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                    echo "<button type='button' data-rol='".$usuario['rol']."' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                                     <i class='fas fa-pen-square'></i></button>";
                                                     }
                                                 break;    
                                         }
+                                        if($miusuario["userid"] == $usuario["userid"]){
+                                            echo'  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink'.$usuario['ID'].'">
+                                            <a style="cursor:pointer;" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Administrador</a>
+                                          </div></div></td><td></td>';
+                                        }else{
                                         echo'  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink'.$usuario['ID'].'">
                                             <a style="cursor:pointer;" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Administrador</a>
                                             <a style="cursor:pointer;" type="buttom" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Usuario</a>
                                             <a style="cursor:pointer;" type="buttom" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Especialista</a>
                                           </div></div></td>
-                                        <td><button class="modified'.$usuario["ID"].' btn btn-success" onclick="changeRol(\''.$usuario['ID'].'\',\''.$usuario['userid'].'\')" id="guardar" type="button">Save</button></td> 
+                                          <td><button class="modified'.$usuario["ID"].' btn btn-success" onclick="changeRol(\''.$usuario['ID'].'\',\''.$usuario['userid'].'\')" id="guardar" type="button">Save</button></td> ';
+                                        }
+                                        echo' 
                                         <td>'.$usuario['created'].'</td>
                                         <td>'.$usuario['modified'].'</td>';
                                     if($rol != '' && $rol == '0') {
@@ -697,7 +722,7 @@ header{
                                 </div>
                                 <div class='modal-footer'>
                                     <button type='button' class='btn btn-secondary' data-dismiss='modal'>No</button>
-                                    <button type='button' class='btn btn-danger'>Borrar</button>
+                                    <button type='button' onclick=\"borrar('".$usuario['ID']."','".$usuario['userid']."')\" class='btn btn-danger'>Borrar</button>
                                 </div>
                             </div>
                         </div>
@@ -743,9 +768,22 @@ if($rol != '' && $rol == '0') {
             window.location.href="../../assets/mod/change.php?id="+username+"&newrol="+newrol+"&admtoken='.hash('sha256',$_SESSION['token'].$username).'";
         }
     }
+    function borrar(id, userid) {
+            if(id !== "0" && id !== "" && userid !== "" & userid !== "0"){
+                window.location.href="../../assets/mod/delete.php?userid="+userid+"&id="+id+"&admtoken='.hash('sha256',$_SESSION['token'].$username).'&type=true";
+            }
+    }
+    function borrarproducto(id) {
+        if(id !== "0" && id !== ""){
+            window.location.href="../../assets/mod/delete.php?id="+id+"&admtoken='.hash('sha256',$_SESSION['token'].$username).'&type=false";
+        }
+}
     function modify(param, id, rol) {
         let nombre = "#rol" + id;
-        let num = "";
+        let nombredropdown = "#dropdownMenuLink"+id;
+        let rolactual = $(nombredropdown).data("rol");
+        let nuevorol= "1";
+        let num = "1";
         switch($(nombre).html()){
             case "Administrador":
                 num = "0";
@@ -758,16 +796,25 @@ if($rol != '' && $rol == '0') {
                 break;
 
         }
-        if (mirol === num) {
-            $(".modified"+id).hide();
+        switch(param.innerHTML){
+            case "Administrador":
+                nuevorol = "0";
+                break;
+            case "Usuario":
+                nuevorol = "1";
+                break;
+            case "Especialista":
+                nuevorol = "2";
+                break;
         }
-        else{
             if ($(nombre).html() !== param.innerHTML) {
                 
                 $(nombre).html(param.innerHTML);
                 $(".modified"+id).show();
             }
-        }
+            if (rolactual == nuevorol) {
+                $(".modified"+id).hide();
+            }
         }
 </script>';
 }

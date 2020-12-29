@@ -121,6 +121,8 @@
         session_start();
         session_unset();
         session_destroy();
+        unset($_SESSION["token"]);
+        unset($_SESSION["id"]);
         session_write_close();
         session_start();
         header("Location:   index.php");
@@ -128,6 +130,8 @@
       else if($_GET['result'] == "00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219"){
         session_unset();
         session_destroy();
+        unset($_SESSION["token"]);
+        unset($_SESSION["id"]);
         session_write_close();
         header("Location:   index.php");
       }
@@ -141,6 +145,8 @@
         La hemos bloqueado por seguridad, vuelva a hacer el login, sentimos las molestias.
         <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
         </div>";
+        unset($_SESSION["token"]);
+        unset($_SESSION["id"]);
         setcookie("__err__", "",time() - 3600,"/");
     }
     ?>

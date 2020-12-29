@@ -28,8 +28,8 @@ function error421(){
     }
     exit;
 }
-// ERROR 421
-// ERROR POR DE IMAGEN
+// ERROR 521
+// ERROR POR LA IMAGEN
 function error521(){
     $host = $_SERVER['HTTP_HOST'];
     header('Location: http://'.$host.'/IS2/login/usuario/index.php');
@@ -40,7 +40,7 @@ function error521(){
     }
     exit;
 }
-// ERROR 421
+// ERROR 621
 // ERROR AL AÑADIR
 function error621(){
     $host = $_SERVER['HTTP_HOST'];
@@ -53,7 +53,7 @@ function error621(){
     exit;
 }
 // ERROR 212
-// ERROR AL AÑADIR
+// ERROR AL NO PODER CAMBIAR ROL
 function error212(){
     $host = $_SERVER['HTTP_HOST'];
     header('Location: http://'.$host.'/IS2/login/usuario/index.php');
@@ -64,8 +64,37 @@ function error212(){
     }
     exit;
 }
-// ERROR 421
-// ERROR AL AÑADIR
+
+// ERROR 312
+// ERROR AL NO BORRAR USUARIO
+function error312(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrerr__"] = "312";
+    }else{
+        error101();
+    }
+    exit;
+}
+
+// ERROR 412
+// ERROR AL NO BORRAR PRODUCTO
+function error412(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrerr__"] = "412";
+    }else{
+        error101();
+    }
+    exit;
+}
+
+
+
+// Sucesso al añadir producto
+// 
 function success(){
     $host = $_SERVER['HTTP_HOST'];
     header('Location: http://'.$host.'/IS2/login/usuario/index.php');
@@ -76,7 +105,19 @@ function success(){
     }
     exit;
 }
-// Sucesso Cambiado
+// Sucesso al borrar producto
+function success_off(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__sucess__"] = "false";
+    }else{
+        error412();
+    }
+    exit;
+}
+
+// Sucesso al cambiar rol usuario
 function usrsuccess(){
     $host = $_SERVER['HTTP_HOST'];
     header('Location: http://'.$host.'/IS2/login/usuario/index.php');
@@ -88,5 +129,17 @@ function usrsuccess(){
     exit;
 }
 
+
+// Sucesso al borrar usuario
+function usrsuccess_off(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrsucess__"] = "false";
+    }else{
+        error312();
+    }
+    exit;
+}
 
 ?>

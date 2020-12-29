@@ -7,7 +7,8 @@ if(isset($_GET)){
     if(!empty($_GET['id']) && !empty($_GET['admtoken'])){
         include("connect.php");
         $userid = $conexion->real_escape_string($_GET['id']);
-        if(!empty($userid)){
+        $newrole = $conexion->real_escape_string($_GET['newrol']);
+        if(!empty($userid) && $newrole !== ""){
             $sessid= $_SESSION['id'];
             $q1 = 'SELECT userid, email, password FROM user WHERE userid = \''.$sessid.'\'';
             if($result = $conexion->query($q1)){
@@ -29,13 +30,13 @@ if(isset($_GET)){
                 error212();
             }
         }else{
-            error212();
+            error151();
         }
     }else{
-        error212();
+        error151();
     }
 }else{
-    error212();
+    error151();
 }
 
 
