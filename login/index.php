@@ -23,6 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mathias Brunkow Moser">
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
     <title>Login</title>
       <script src="../assets/js/libs/jquery/jquery-3.5.1.slim.min.js"></script>
       <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
     <title>Registro</title>
       <script src="../../assets/js/libs/jquery/jquery-3.5.1.slim.min.js"></script>
       <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
@@ -50,7 +51,7 @@
       </div>
     </header>
 <main class="form-signin" >
-  <form  class="" id="formulario" action="registro.php" method="post" autocomplete="off" novalidate>
+  <form id="formulario" action="registro.php" method="post" autocomplete="off" novalidate>
     <div class="text-center p-5">
       <img id="logo" src="../../media/img/logo2.png" alt="" width="250" height="65">
     </div>

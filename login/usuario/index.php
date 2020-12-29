@@ -57,6 +57,7 @@ $productos = $producto->getRows($productoCond);
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
     <link href="../../assets/css/main.css" rel="stylesheet">
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
     <link href="../../assets/bt/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -353,6 +354,14 @@ header{
                                 <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                 </div>";
                             }
+                            if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "212"){
+                                //Borrar cookie
+                                    unset($_SESSION["__usrerr__"]);
+                                    echo"<div class='mt-5 alert alert-danger alert-dismissible fade show' role='alert'>
+                                    <strong>¡Qué pena!</strong> No ha sido posible editar el usuario.
+                                    <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                    </div>";
+                                }
                             if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "521"){
                                 //Borrar cookie
                                     unset($_SESSION["__usrerr__"]);
@@ -377,12 +386,20 @@ header{
                                     <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                     </div>";
                                 }
+                                if(isset($_SESSION["__usrsucess__"]) && $_SESSION["__usrsucess__"] == "true"){
+                                    //Borrar cookie
+                                        unset($_SESSION["__usrsucess__"]);
+                                        echo"<div class='mt-5 alert alert-success alert-dismissible fade show' role='alert'>
+                                        <strong>¡Usuario Modificado!</strong> El rol se ha actualizado! 
+                                        <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                        </div>";
+                                    }
                         }
                     ?>
                     <h2 class="text-color">Productos Disponibles</h2>
                     <section class="productos">
                         <div class="tbl-content">
-                            <table class="table table-responsive" cellpadding="0" cellspacing="0" border="0">
+                            <table class="table table-responsive" cellpadding="0" cellspacing="0">
                                     <thead class="tbl-header">
                                     <tr>
                                         <th>ID</th>
@@ -579,10 +596,12 @@ header{
                                         <th>Email</th>
                                         <th>Rol</th>
                                         ";
+                                        if($rol != '' && $rol == '0') {
+                                            echo '<th></th>';}
                                         echo"<th>Created</th>
                                         <th>Modified</th>
                                         ";if($rol != '' && $rol == '0') {
-                                        echo '<th></th>';}
+                                            echo '<th></th>';}
                                         echo"
                                     </tr>
                                     </thead>
@@ -598,32 +617,45 @@ header{
 
                                         switch($usuario['rol']){
                                             case "0":
-                                                echo "<span id='rol".$usuario['ID']."'>Administrador</span><button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                echo "<span id='rol".$usuario['ID']."'>Administrador</span>";
+                                                if($rol != '' && $rol == '0') {
+                                                echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                                 <i class='fas fa-pen-square'></i></button>";
+                                                }
                                                 break;
                                             case "1":
                                                 echo "<span id='rol".$usuario['ID']."'>Usuario</span>";
+                                                if($rol != '' && $rol == '0') {
+                                                    echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                    <i class='fas fa-pen-square'></i></button>";
+                                                    }
                                                 break;
                                             case "2":
                                                 echo "<span id='rol".$usuario['ID']."'>Especialista</span>";
+                                                if($rol != '' && $rol == '0') {
+                                                    echo "<button type='button' id='dropdownMenuLink".$usuario['ID']."' style='padding: 6px 12px;color:white' class='btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                    <i class='fas fa-pen-square'></i></button>";
+                                                    }
                                                 break;    
                                         }
                                         echo'  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink'.$usuario['ID'].'">
                                             <a style="cursor:pointer;" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Administrador</a>
                                             <a style="cursor:pointer;" type="buttom" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Usuario</a>
                                             <a style="cursor:pointer;" type="buttom" class="dropdown-item" onclick="modify(this,'.$usuario['ID'].','.$usuario['rol'].')">Especialista</a>
-                                          </div></div>
-                                        <td class="modified"><button type="button" class="btn btn-success">Save</button></td> 
+                                          </div></div></td>
+                                        <td><button class="modified'.$usuario["ID"].' btn btn-success" onclick="changeRol(\''.$usuario['ID'].'\',\''.$usuario['userid'].'\')" id="guardar" type="button">Save</button></td> 
                                         <td>'.$usuario['created'].'</td>
                                         <td>'.$usuario['modified'].'</td>';
                                     if($rol != '' && $rol == '0') {
+                                        if($miusuario["ID"] != $usuario["ID"]){
                                         echo "<td>
                                             <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#userModal" . $usuario['ID'] . "'>
                                               <i class='fas fa-times'></i>
                                             </button>
                                         </td>";
-                                        echo '</tr>';
+                                        }
                                     }
+                                    echo '</tr>';
                                 }
                                 echo "
                                 </tbody>
@@ -670,7 +702,8 @@ header{
                             </div>
                         </div>
                         </div>";
-                        }}
+                        }
+                    }
                         echo "</div>
                     </section>
                 </div>
@@ -684,7 +717,63 @@ header{
 <script src="../../assets/js/jarallax.min.js"></script>
 <script src="../../assets/bt/js/bootstrap.bundle.js"></script>
 <script src="../../assets/js/parallax.js"></script>
+<?php 
+if($rol != '' && $rol == '0') {
+    echo '<script>
+    var mirol = '.$rol.';
+    function changeRol(id, username){
+        let nombre = "#rol" + id;
+        let newrol = "";
+        switch($(nombre).html()){
+            case "Administrador":
+                newrol = "0";
+                break;
+            case "Usuario":
+                newrol = "1";
+                break;
+            case "Especialista":
+                newrol = "2";
+                break;
+            default:
+                newrol = "-1";
+                break;
+
+        }
+        if(mirol !== newrol && newrol !== "-1"){
+            window.location.href="../../assets/mod/change.php?id="+username+"&newrol="+newrol+"&admtoken='.hash('sha256',$_SESSION['token'].$username).'";
+        }
+    }
+    function modify(param, id, rol) {
+        let nombre = "#rol" + id;
+        let num = "";
+        switch($(nombre).html()){
+            case "Administrador":
+                num = "0";
+                break;
+            case "Usuario":
+                num = "1";
+                break;
+            case "Especialista":
+                num = "2";
+                break;
+
+        }
+        if (mirol === num) {
+            $(".modified"+id).hide();
+        }
+        else{
+            if ($(nombre).html() !== param.innerHTML) {
+                
+                $(nombre).html(param.innerHTML);
+                $(".modified"+id).show();
+            }
+        }
+        }
+</script>';
+}
+?>
 <script>
+
     $(function () {
         $(".add").click(function () {
             $("#productoadd").toggle("slow");
@@ -694,31 +783,7 @@ header{
         });
     });
 
-        function modify(param, id, rol) {
-            let nombre = "#rol" + id;
-            let num = "";
-            switch($(nombre).html()){
-                case "Administrador":
-                    num = "0";
-                    break;
-                case "Usuario":
-                    num = "1";
-                    break;
-                case "Especialista":
-                    num = "2";
-                    break;
-
-            }
-            if (rol === num) {
-                $(".modified").hide();
-            }
-            else{
-                if ($(nombre).html() !== param.innerHTML) {
-                    $(nombre).html(param.innerHTML);
-                    $(".modified").show();
-                }
-            }
-            }
+      
     // Disable form submissions if there are invalid fields
     (function() {
         'use strict';

@@ -87,7 +87,7 @@
           <div class="row media-row slideanim">
               
             <div class="team-item col-lg-3 col-md-6 FadeLeft">
-                <a href="http://fabdefab.com" target="_blank">
+                <a href="#" target="_blank">
                   <div class="item-image">
                       <img src="../media/img/img12.jpeg" alt="" title="">
                   </div>
@@ -104,7 +104,7 @@
                   </div>
                   
               </div><div class="team-item col-lg-3 col-md-6 slideanim">
-              <a href="https://exarchitects.com" target="_blank">
+              <a href="#" target="_blank">
                   <div class="item-image">
                       <img src="../media/img/img20.jpg" alt="" title="">
                   </div>

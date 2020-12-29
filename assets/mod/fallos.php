@@ -52,6 +52,18 @@ function error621(){
     }
     exit;
 }
+// ERROR 212
+// ERROR AL AÑADIR
+function error212(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrerr__"] = "212";
+    }else{
+        error101();
+    }
+    exit;
+}
 // ERROR 421
 // ERROR AL AÑADIR
 function success(){
@@ -61,6 +73,17 @@ function success(){
         $_SESSION["__sucess__"] = "true";
     }else{
         error421();
+    }
+    exit;
+}
+// Sucesso Cambiado
+function usrsuccess(){
+    $host = $_SERVER['HTTP_HOST'];
+    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    if(!empty(session_id())){
+        $_SESSION["__usrsucess__"] = "true";
+    }else{
+        error212();
     }
     exit;
 }

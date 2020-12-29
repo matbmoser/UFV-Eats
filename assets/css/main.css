@@ -34,6 +34,9 @@ body {
 .img1{
     background-image: url("../../media/img/fondo.jpg")!important;
 }
+#guardar{
+    display:none;
+}
 .maintitle {
     letter-spacing: 7px;
     font-size: 5em;
