@@ -55,7 +55,14 @@
     </p>
     </div>
     <div class="mbr-text col-10 col-md-9 mbr-fonts-style display-7">
-            <blockquote><p><strong>Desde nuestras casas,&nbsp;</strong>fabricamos y montamos <strong>viseras-pantallas &nbsp;</strong>a través de impresoras 3D gracias al material donado por varias<strong> compañias y de manera anónima</strong>. Tambíen organizamos y distribuimos la producción con la ayuda de <strong>bomberos de Fuenlabrada</strong>, que entregan a los <strong>Hospitales y Centros de Salud</strong>, que se ponen en contacto con nosotros <strong>solicitando ayuda</strong>.</p><p>Si quieres <strong>participar en nuestro proyecto</strong>, donando material comprándolo o colaborando de alguna forma, ponte en <strong>contacto</strong> con nosotros o<strong> pulse en este botón a bajo</strong> y siga las instrucciones.</p>
+            <blockquote><p>La creacion de la <strong>página web</strong> permite tanto a los profesores como 
+        a los alumnos y personas que vengan de visita a la <strong>Universidad Francisco de Vitoria</strong> 
+        conocer los menús que se sirven en la cafetería. Aunque la finalidad no es únicamente 
+        la de mostrar <strong>el menú del día</strong>, que puede facilitar en gran medida la decisión de las 
+        personas sobre lo que quieren comer, sino que sobre todo está <strong>destinado a ayudar</strong> a 
+        aquellos con <strong>alergias alimenticias, intolerancias</strong> o gente que sigue algún tipo de dieta 
+        específica, que son <strong>los usuarios</strong> para los que realmente está destinada <strong>nuestra 
+        página web.</strong></p>
         </blockquote>
     </div>
    </div>
@@ -65,10 +72,10 @@
     
     <div class="container align-center">
         <h2 class="pb-3 mbr-fonts-style mbr-section-title display-2">
-            EQUIPO ANTI COVID
+           UFV EATS
         </h2>
         <h3 class="mbr-section-subtitle mbr-fonts-style mbr-light display-5">
-            ¡Esto son los voluntarios que están trabajando duro y dedicando su tiempo para mantener este proyecto funcionando sin parar!
+           Integrantes del proyecto.
         </h3>
         <div class="agrupacion">
           <div class="row slideanim">
@@ -78,7 +85,7 @@
             <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
             <i class="iconos fas fa-industry"></i>
             <i class="iconos fas fa-cubes"></i>
-            <p>Producción y Colaboración de Fabricación</p>
+            <p>Backend</p>
             </div>
             <i class="cuadroderizq fas fa-angle-right"></i>
             <i class="cuadroder fas fa-angle-right"></i>
@@ -89,52 +96,38 @@
             <div class="team-item col-lg-3 col-md-6 FadeLeft">
                 <a href="#" target="_blank">
                   <div class="item-image">
-                      <img src="../media/img/img12.jpeg" alt="" title="">
+                      <img src="../media/img/mathias.jpg" alt="mathias" title="">
                   </div>
                   </a>
                   <div class="item-caption py-3">
                       <div class="item-name px-2">
                           <p class="mbr-fonts-style display-5">
-                            Fabricio Santos</p>
+                            Mathias Brunkow Moser</p>
                       </div>
                       <div class="item-role px-2">
-                          <p>Fábrica de Fabricantes</p>
-                          <p>Doctorando en Arquitectura</p>
+                          <p>PO & Desarrollador</p>
+                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
                       </div>
                   </div>
                   
               </div><div class="team-item col-lg-3 col-md-6 slideanim">
               <a href="#" target="_blank">
                   <div class="item-image">
-                      <img src="../media/img/img20.jpg" alt="" title="">
+                      <img src="../media/img/rafa.jpg" alt="rafa" title="">
                   </div>
                   </a>
                   <div class="item-caption py-3">
                       <div class="item-name px-2">
                           <p class="mbr-fonts-style display-5">
-                            Eduardo González</p>
+                          Rafael Camarero Rodriguez</p>
                       </div>
                       <div class="item-role px-2">
-                          <p>EXarchitects</p>
+                          <p>Desarrollador</p>
+                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
                       </div>
                   </div>
               </div>
-              <div class="team-item col-lg-3 col-md-6 FadeRight">
-                  <a href="https://flowalistik.com" target="_blank">
-                  <div class="item-image">
-                      <img src="../media/img/img19.jpeg" alt="" title="">
-                  </div>
-                  </a>
-                  <div class="item-caption py-3">
-                      <div class="item-name px-2">
-                          <p class="mbr-fonts-style display-5">
-                            Agustín Arroyo</p>
-                      </div>
-                      <div class="item-role px-2">
-                          <p>Flowalistik</p>
-                      </div>
-                  </div>
-              </div>
+
             </div>
           </div>
           <div class="agrupacion">
@@ -145,43 +138,58 @@
             <div class="subtitles mbr-fonts-style mbr-section-title" style="display: flow-root;padding-top: 2em;">
             <i class="iconos fas fa-people-carry"></i>
             <i class="iconos fas fa-tasks"></i>
-            <p>Coordinación</p>
+            <p>Frontend</p>
             </div>
             <i class="cuadroderizq fas fa-angle-right"></i>
             <i class="cuadroder fas fa-angle-right"></i>
             </div>
           </div>
           <div class="row media-row slideanim">
-              
             <div class="team-item col-lg-3 col-md-6 FadeLeft">
                   <div class="item-image">
-                      <img src="../media/img/img14.jpeg" alt="" title="">
+                      <img src="../media/img/aina.jpg" alt="aina" title="">
                   </div>
                   <div class="item-caption py-3">
                       <div class="item-name px-2">
                           <p class="mbr-fonts-style display-5">
-                            Alba del Rey</p>
+                          Aina Mora Columbrans</p>
                       </div>
                       <div class="item-role px-2">
-                          <p>Arquitectura</p>
+                          <p>SM & Desarrollador</p>
+                          <p>Ingeniería Informática, con Ciberseguridad y Hacking Ético.</p>
                       </div>
                   </div>
               </div>
               <div class="team-item col-lg-3 col-md-6 FadeRight">
                   <div class="item-image">
-                      <img src="../media/img/img15.jpeg" alt="" title="">
+                      <img src="../media/img/charly.jpg" alt="charly" title="">
                   </div>
                   <div class="item-caption py-3">
                       <div class="item-name px-2">
                           <p class="mbr-fonts-style display-5">
-                            Almudena Laria</p>
+                          Carlos Simon Hernandez</p>
                       </div>
                       <div class="item-role px-2">
-                          <p>Arquitectura</p>
+                          <p>Desarrollador</p>
+                          <p>Ingeniería Informática, experto en Robótica.</p>
                       </div>
                   </div>
               </div>
-
+              <div class="team-item col-lg-3 col-md-6 FadeRight">
+                  <div class="item-image">
+                      <img src="../media/img/martin.jpg" alt="martin" title="">
+                  </div>
+                  <div class="item-caption py-3">
+                      <div class="item-name px-2">
+                          <p class="mbr-fonts-style display-5">
+                            Martin Diz Figueroa</p>
+                      </div>
+                      <div class="item-role px-2">
+                          <p>Desarrollador</p>
+                          <p>Ingeniería Informática, experto en Robótica.</p>
+                      </div>
+                  </div>
+              </div>
             </div>
           </div>
 </section>
