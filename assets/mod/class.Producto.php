@@ -1,19 +1,15 @@
 <?php
-/*
- * Usuario Class
- * This class is used for database related (connect fetch, insert, and update) operations
- * @author    wejyc.com
- * @url       http://www.wejyc.com
- * @license   http://www.wejyc.com/license
- */
-class Usuario{
+
+
+class Producto
+{
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "NdVd4XxwoBfJ4Qx1";
     private $dbName     = "ufveats";
-    private $table      = "user";
-    
-    
+    private $table      = "producto";
+
+
     public function __construct(){
         if(!isset($this->db)){
             // Connect to the database
@@ -25,7 +21,7 @@ class Usuario{
             }
         }
     }
-    
+
     /*
      * Returns rows from the database based on the conditions
      * @param array select, where, order_by, limit and return_type conditions
@@ -43,7 +39,7 @@ class Usuario{
                 $i++;
             }
         }
-        
+
         if(array_key_exists("where_not",$conditions)){
             $sql .= (strpos($sql, 'WHERE') === false)?' WHERE ':' AND ';
             $i = 0;
@@ -53,19 +49,19 @@ class Usuario{
                 $i++;
             }
         }
-        
+
         if(array_key_exists("order_by",$conditions)){
-            $sql .= ' ORDER BY '.$conditions['order_by']; 
+            $sql .= ' ORDER BY '.$conditions['order_by'];
         }
-        
+
         if(array_key_exists("start",$conditions) && array_key_exists("limit",$conditions)){
-            $sql .= ' LIMIT '.$conditions['start'].','.$conditions['limit']; 
+            $sql .= ' LIMIT '.$conditions['start'].','.$conditions['limit'];
         }elseif(!array_key_exists("start",$conditions) && array_key_exists("limit",$conditions)){
-            $sql .= ' LIMIT '.$conditions['limit']; 
+            $sql .= ' LIMIT '.$conditions['limit'];
         }
 
         $result = $this->db->query($sql);
-        
+
         if(array_key_exists("return_type",$conditions) && $conditions['return_type'] != 'all'){
             switch($conditions['return_type']){
                 case 'count':
@@ -86,7 +82,7 @@ class Usuario{
         }
         return !empty($data)?$data:false;
     }
-    
+
     /*
      * Insert data into the database
      * @param array the data for inserting into the table
@@ -97,12 +93,6 @@ class Usuario{
             $columns = '';
             $values  = '';
             $i = 0;
-            if(!array_key_exists('created',$data)){
-                $data['created'] = date("Y-m-d H:i:s");
-            }
-            if(!array_key_exists('modified',$data)){
-                $data['modified'] = date("Y-m-d H:i:s");
-            }
             foreach($data as $key=>$val){
                 $pre = ($i > 0)?', ':'';
                 $columns .= $pre.$key;
@@ -116,7 +106,7 @@ class Usuario{
             return false;
         }
     }
-    
+
     /*
      * Update data into the database
      * @param array the data to update into the table
@@ -128,15 +118,12 @@ class Usuario{
             //prepare columns and values sql
             $cols_vals = '';
             $i = 0;
-            if(!array_key_exists('modified',$data)){
-                $data['modified'] = date("Y-m-d H:i:s");
-            }
             foreach($data as $key=>$val){
                 $pre = ($i > 0)?', ':'';
                 $cols_vals .= $pre.$key." = '".$this->db->real_escape_string($val)."'";
                 $i++;
             }
-            
+
             //prepare where conditions
             $whereSql = '';
             $ci = 0;
@@ -145,7 +132,7 @@ class Usuario{
                 $whereSql .= $pre.$key." = '".$value."'";
                 $ci++;
             }
-            
+
             //prepare sql query
             $query = "UPDATE ".$this->table." SET ".$cols_vals." WHERE ".$whereSql;
 
@@ -163,7 +150,7 @@ class Usuario{
      */
     public function delete($conditions){
         if(!empty($conditions)){
-            
+
             //prepare where conditions
             $whereSql = '';
             $ci = 0;
@@ -172,7 +159,7 @@ class Usuario{
                 $whereSql .= $pre.$key." = '".$value."'";
                 $ci++;
             }
-            
+
             //prepare sql query
             $query = "DELETE FROM ".$this->table." WHERE ".$whereSql;
 
@@ -188,65 +175,24 @@ class Usuario{
      * Insert / Update social user data into the database
      * @param array the data to insert or update into the table
      */
-    function checkUser($userData = array()){
-        if(!empty($userData)){
-<<<<<<< HEAD
-            // Check whether user data already exists in database with same oauth info
-            $prevQuery = "SELECT * FROM ".$this->table." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_uid = '".$userData['oauth_uid']."'";
-            $prevResult = $this->db->query($prevQuery);
-=======
->>>>>>> 97106070931398f85b844d83686397bfdc538af9
-            
+    function checkUser($productData = array()){
+        if(!empty($productData)){
             // Check whether user data already exists in database with same email
-            $prevQuery2 = "SELECT * FROM ".$this->table." WHERE email != '' AND email = '".$userData['email']."'";
+            $prevQuery2 = "SELECT * FROM ".$this->table." WHERE nombre != '' AND nombre = '".$productData['nombre']."'";
             $prevResult2 = $this->db->query($prevQuery2);
-            
-            if($prevResult->num_rows > 0){
-                $cols_vals = '';
-                $i = 0;
-                // Update user data if already exists
-                if(!array_key_exists('modified',$userData)){
-                    $userData['modified'] = date("Y-m-d H:i:s");
-                }
-                foreach($userData as $key=>$val){
-                    $pre = ($i > 0)?', ':'';
-                    $cols_vals .= $pre.$key." = '".$this->db->real_escape_string($val)."'";
-                    $i++;
-                }
-                //prepare sql query
-                $query = "UPDATE ".$this->table." SET ".$cols_vals." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_uid = '".$userData['oauth_uid']."'";
-    
-                //update data
-                $update = $this->db->query($query);
-            }elseif($prevResult2->num_rows > 0){
-                // Update user data if already exists
-                if(!array_key_exists('modified',$userData)){
-                    $userData['modified'] = date("Y-m-d H:i:s");
-                }
+
+            if($prevResult2->num_rows > 0){
 
                 //prepare sql query
-<<<<<<< HEAD
-                $query = "UPDATE ".$this->table." SET oauth_provider = '".$userData['oauth_provider']."', oauth_uid = '".$userData['oauth_uid']."', modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
-=======
-                $query = "UPDATE ".$this->table." SET modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
->>>>>>> 97106070931398f85b844d83686397bfdc538af9
-    
+                $query = "UPDATE ".$this->table." SET imagen = '".$productData['imagen'].",precio = '".$productData['precio'].",cantidad = '".$productData['categoria']."',ingredientes = '".$productData['ingredientes'].",descripcion = '".$productData['descripcion']." WHERE nombre = '".$productData['nombre']."'";
+
                 //update data
                 $update = $this->db->query($query);
             }else{
                 $columns = '';
                 $values  = '';
                 $i = 0;
-                // Insert user data
-                $userData['activated'] = '1';
-                $userData['status'] = '1';
-                if(!array_key_exists('created',$userData)){
-                    $userData['created'] = date("Y-m-d H:i:s");
-                }
-                if(!array_key_exists('modified',$userData)){
-                    $userData['modified'] = date("Y-m-d H:i:s");
-                }
-                foreach($userData as $key=>$val){
+                foreach($productData as $key=>$val){
                     $pre = ($i > 0)?', ':'';
                     $columns .= $pre.$key;
                     $values  .= $pre."'".$this->db->real_escape_string($val)."'";
@@ -255,15 +201,13 @@ class Usuario{
                 $query = "INSERT INTO ".$this->table." (".$columns.") VALUES (".$values.")";
                 $insert = $this->db->query($query);
             }
-            
-            // Get user data from the database
-            $result = $this->db->query($prevQuery);
-            $userData = $result->fetch_assoc();
-        }
-        
-        // Return user data
-        return $userData;
-    }
-	
 
+            // Get user data from the database
+            $result = $this->db->query($prevQuery2);
+            $productData = $result->fetch_assoc();
+        }
+
+        // Return user data
+        return $productData;
+    }
 }

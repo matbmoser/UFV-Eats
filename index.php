@@ -105,26 +105,32 @@ $(document).ready(function(){
 		<div class="row">
 			<h2>Productos</h2>
 			<div class="container bots">
-				<a href="/?categoria=Alergia">
-					<button class="btn btn-default btn-lg bot">Alergia</button>
-				</a>
-				<a href="/?categoria=Proteica">
-					<span class="btn btn-default btn-lg bot">Proteica</span>
-				</a>
-				<a href="/?categoria=Hipercalorica">
-					<button class="btn btn-default btn-lg bot">Hipercalorica</button>
-				</a>
-				<a href="/?categoria=Hipocalorica">
-					<button class="btn btn-default btn-lg bot">Hipocalorica</button>
-				</a>
-				<a href="/?categoria=Vegetariano">
-				<span class="btn btn-default btn-lg bot">Vegetariano</span>
-			</a>
-			<a href="/?categoria=Vegano">
-				<span class="btn btn-default btn-lg bot">Vegano</span>
-			</a>
+				<div class="row">
+				<div class="col-lg-6">
+					<a href="/?categoria=Alergia">
+						<span class="btn btn-default btn-lg bot">Alergia</span>
+					</a>
+					<a href="/?categoria=Proteica">
+						<span class="btn btn-default btn-lg bot">Proteica</span>
+					</a>
+					<a href="/?categoria=Hipercalorica">
+						<button class="btn btn-default btn-lg bot">Hipercalorica</button>
+					</a>
+				</div>
+				<div class="col-lg-6">
+					<a href="/?categoria=Hipocalorica">
+						<button class="btn btn-default btn-lg bot">Hipocalorica</button>
+					</a>
+					<a href="/?categoria=Vegetariano">
+						<span class="btn btn-default btn-lg bot">Vegetariano</span>
+					</a>
+					<a href="/?categoria=Vegano">
+						<span class="btn btn-default btn-lg bot">Vegano</span>
+					</a>
+				</div>
 			</div>
-				
+			</div>
+
 			<?php
 			if (empty($_GET["categoria"]))
 				Mostrarproducto("none");
@@ -302,7 +308,7 @@ $(document).ready(function(){
     .bot{
     	border: 1px solid rgba(0,0,0,0.1); 
     	box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
-    	width: 15%;
+    	width: 32.5%;
     	height: 50px;
     	margin: auto;
     }
