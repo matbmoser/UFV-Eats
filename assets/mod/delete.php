@@ -20,7 +20,12 @@ if(isset($_GET)){
                 if($token == $_GET["admtoken"]){
                     $up1 = 'DELETE FROM user WHERE userid = \''.$userid.'\' AND id = \''.$id.'\'';
                     if($conexion->query($up1) === TRUE){
-                        usrsuccess_off();
+                        require("actualizar.php");
+                        if(actualizarusuario($id) === true){
+                            usrsuccess_off();
+                        }else{
+                            error312();
+                        }
                     }else{
                         error312();
                     }
@@ -45,7 +50,12 @@ if(isset($_GET)){
                 if($token == $_GET["admtoken"]){
                     $up1 = 'DELETE FROM producto WHERE id = \''.$id.'\'';
                     if($conexion->query($up1) === TRUE){
-                        success_off();
+                        require("actualizar.php");
+                        if(actualizarproducto($id) === true){
+                            success_off();
+                        }else{
+                            error312();
+                        }
                     }else{
                         error412();
                     }

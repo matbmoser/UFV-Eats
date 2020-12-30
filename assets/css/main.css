@@ -25,6 +25,22 @@ body {
     height: inherit;
     z-index: 1000;
 }
+.navbar-toggler:focus{
+  outline: none!important;
+  box-shadow: none!important;
+}
+.navbar-toggler{
+  color: var(--color)!important;
+  transition: all .25s ease;
+  border-radius: none!important;
+  margin: 5px!important;
+  padding: 10px 14px!important;
+}
+.navbar-toggler:hover{
+  background:var(--color)!important; color:var(--bg-color)!important;  
+  transition: all .25s ease;
+  border-radius: none!important;
+}
 .c2{
     height: 100%;
 }
@@ -139,4 +155,53 @@ body {
 .logo{
     width: 12em;
     margin-left: 8px;
+}
+#logo{
+  width: 250px;
+  height: 65px;
+  margin: 50px 0;
+}
+.nav-item{
+  margin:5px!important;
+}
+@media screen and (max-width: 320px) {
+  #logo{
+    width: 190px;
+    height: 50px;
+    margin: 42px 0px 22px 0px;
+  }
+  header.user{
+    background-color:var(--bg-color);
+  }
+}
+@media (min-width: 321px) and (max-width: 575.90px) {
+  #logo{
+    width: 250px;
+    height: 65px;
+    margin: 56px 0px 40px 0px;
+  }
+  header.user{
+    background-color:var(--bg-color);
+  }
+}
+@media (min-width: 576px) and (max-width:767.98px) {
+  #logo{
+    width: 250px;
+    height: 65px;
+    margin: 22px 0px 40px 0px;
+  }
+}
+@media (min-width: 760px) and (max-width:991.98px) {
+  #logo{
+    width: 250px;
+    height: 65px;
+    margin: 22px 0px 40px 0px;
+  }
+}
+@media (min-width: 992px) and (max-width:1199.98px) {
+  #logo{
+    width: 250px;
+    height: 65px;
+    margin: 22px 0px 40px 0px;
+  }
 }

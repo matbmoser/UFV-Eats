@@ -53,7 +53,7 @@
   </head>
 <body class="body">
 <script src="../assets/js/dark-mode.js"></script>
-  <header class="fixed-top">
+  <header class="user fixed-top">
       <div class="container-fluid p-0">
           <div class="row">
               <div class="col-4 d-flex justify-content-start align-items-center"><a id="return"class="m-4" href="../"><i style="font-size: 2em" class="far fa-arrow-alt-circle-left mr-1"></i></a></div>
@@ -63,13 +63,13 @@
     </header>
 <main class="form-signin" >
   <form  class="needs-validation" id="loginform" method="post" autocomplete="off" novalidate>
-    <div class="text-center p-5">
-      <img id="logo" src="../media/img/logo2.png" alt="" width="250" height="65">
+    <div class="text-center">
+      <img id="logo" src="../media/img/logo2.png" alt="logoufv">
     </div>
      <!-- <li><a href="<?php //echo $gpLoginURL; ?>" class="google"><i class="fab fa-google mr-2"></i></i><span>Iniciar sesión con Google</span></a></li>-->
     <div class="form-label-group">
       <input type="email" id="inputEmail" value="<?php echo $user?>" class="form-control" name="names" placeholder="Email address" required>
-      <label for="inputEmail">Email address</label>
+      <label for="inputEmail">Correo electrónico</label>
       <div class="invalid-feedback">
                             Por favor introduza su correo!
                         </div>
@@ -80,7 +80,7 @@
 
     <div class="form-label-group">
       <input type="password" id="inputPassword" value="<?php echo $pass?>" class="form-control" name="numbers" placeholder="Password" required>
-      <label for="inputPassword">Password</label>
+      <label for="inputPassword">Contraseña</label>
       <div class="invalid-feedback">
                             Por favor introduza su contraseña!
                         </div>

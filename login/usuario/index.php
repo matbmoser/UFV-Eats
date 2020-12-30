@@ -59,264 +59,266 @@ $productos = $producto->getRows($productoCond);
     <link href="../../assets/css/main.css" rel="stylesheet">
     <link rel="icon" href="../../media/favicon.ico" type="image/x-icon">
     <link href="../../assets/bt/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+            
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-        .text-color {
-            color: #ffffff;
-            transition-duration: .5s;
-        }
-        body{
-            background-color: #212529!important;   
-            color:#f8f9fa!important; 
-        }
-        .wrapper {
-            margin: 0 auto;
-            background: #212529;
-        }
+  @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+      }
+  }
+  .text-color {
+      color: #ffffff;
+      transition-duration: .5s;
+  }
+  body{
+      background-color: #212529!important;   
+      color:#f8f9fa!important; 
+  }
+  .wrapper {
+      margin: 0 auto;
+      background: #212529;
+  }
 
-        .tabs {
-            display: table;
-            table-layout: fixed;
-            width: 100%;
-            -webkit-transform: translateY(5px);
-            transform: translateY(5px);
-            margin: 0;
-            padding: 0;
-        }
-        .tabs > li {
-            transition-duration: .25s;
-            display: table-cell;
-            list-style: none;
-            text-align: center;
-            padding: 20px 20px 25px 20px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            color: #ffffff;
-        }
-        .tabs > li:before {
-            z-index: -1;
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 120%;
-            top: 0;
-            left: 0;
-            background-color: rgba(146, 146, 146, 0.3);
-            -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-            transition-duration: .25s;
-            border-radius: 5px 5px 0 0;
-        }
-        .tabs > li:hover:before {
-            -webkit-transform: translateY(70%);
-            transform: translateY(70%);
-        }
-        .tabs > li:hover{
-            background: #f8f9fa;
-            color: black;
-        }
-        .tabs > li.active {
-            color: #ffffff;
-        }
-        .tabs > li.active:hover {
-            color: black;
-        }
-        .tabs > li.active:before {
-            transition-duration: .5s;
-            background-color: #000000;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
+  .tabs {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+      margin: 0;
+      padding: 0;
+  }
+  .tabs > li {
+      transition-duration: .25s;
+      display: table-cell;
+      list-style: none;
+      text-align: center;
+      padding: 20px 20px 25px 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      color: #ffffff;
+  }
+  .tabs > li:before {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 120%;
+      top: 0;
+      left: 0;
+      background-color: rgba(146, 146, 146, 0.3);
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      transition-duration: .25s;
+      border-radius: 5px 5px 0 0;
+  }
+  .tabs > li:hover:before {
+      -webkit-transform: translateY(70%);
+      transform: translateY(70%);
+  }
+  .tabs > li:hover{
+      background: #f8f9fa;
+      color: black;
+  }
+  .tabs > li.active {
+      color: #ffffff;
+  }
+  .tabs > li.active:hover {
+      color: black;
+  }
+  .tabs > li.active:before {
+      transition-duration: .5s;
+      background-color: #000000;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+  }
 
-        .tab__content {
-            background-color: #000000;
-            position: relative;
-            width: 100%;
-            border-radius: 5px;
-        }
-        .tab__content > li {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: none;
-            list-style: none;
-        }
-        .tab__content > li .content__wrapper {
-            text-align: center;
-            border-radius: 5px;
-            width: 100%;
-            padding: 45px 40px 40px 40px;
-            background-color: #000000;
-        }
+  .tab__content {
+      background-color: #000000;
+      position: relative;
+      width: 100%;
+      border-radius: 5px;
+  }
+  .tab__content > li {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      list-style: none;
+  }
+  .tab__content > li .content__wrapper {
+      text-align: center;
+      border-radius: 5px;
+      width: 100%;
+      padding: 45px 40px 40px 40px;
+      background-color: #000000;
+  }
 
-        .content__wrapper h2 {
-            width: 100%;
-            text-align: center;
-            padding-bottom: 20px;
-            font-weight: 300;
-        }
-        .content__wrapper img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        /* for custom scrollbar for webkit browser*/
-        table{
-            width:100%;
-            position: relative;
-            border-collapse: collapse;
-        }
-        .tbl-header{
-            background-color: rgba(255,255,255,0.3);
-            position: sticky;
-            top:0;
-        }
-        .tbl-content{
-            height: 55vh;
-            overflow-x:auto;
-            overflow-y:auto;
-            margin-top: 0px;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        th{
-            padding: 20px 15px;
-            text-align: left;
-            font-weight: 500;
-            font-size: 12px;
-            color: #fff;
-            text-transform: uppercase;
-        }
-        td{
-            padding: 15px;
-            text-align: left;
-            vertical-align:middle;
-            font-weight: 300;
-            font-size: 12px;
-            color: #fff;
-            border-bottom: solid 1px rgba(255,255,255,0.1);
-        }
+  .content__wrapper h2 {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 20px;
+      font-weight: 300;
+  }
+  .content__wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+  }
+  /* for custom scrollbar for webkit browser*/
+  table{
+      width:100%;
+      position: relative;
+      border-collapse: collapse;
+  }
+  .tbl-header{
+      background-color: rgba(255,255,255,0.3);
+      position: sticky;
+      top:0;
+  }
+  .tbl-content{
+      height: 55vh;
+      overflow-x:auto;
+      overflow-y:auto;
+      margin-top: 0px;
+      border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+      padding: 20px 15px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 12px;
+      color: #fff;
+      text-transform: uppercase;
+  }
+  td{
+      padding: 15px;
+      text-align: left;
+      vertical-align:middle;
+      font-weight: 300;
+      font-size: 12px;
+      color: #fff;
+      border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
 
-        .add{
-            position: relative;
-            left: -18px;
-            display: flex;
-            bottom: 14px;
-            font-size: 32px;
-            transition: all .25s ease;
+  .add{
+      position: relative;
+      left: -18px;
+      display: flex;
+      bottom: 14px;
+      font-size: 32px;
+      transition: all .25s ease;
 
-        }
-        .add:hover{
-            opacity: 0.6;
-            transition: all .25s ease;
-            cursor: pointer;
-        }
-        /* demo styles */
+  }
+  .add:hover{
+      opacity: 0.6;
+      transition: all .25s ease;
+      cursor: pointer;
+  }
+  /* demo styles */
 
-        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
-        }
-        ::-webkit-scrollbar-thumb {
-            -webkit-box-shadow: inset 0 0 6px rgba(252, 252, 252, 0.3);
-        }
-        #productoadd{
-            display: none;
-            transition: all .25s ease;
-        }
-        .modified{
-            display: none;
-        }
-        .logo{
-    width: 12em;
-    margin-left: 8px;
+  ::-webkit-scrollbar {
+      width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+  }
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(252, 252, 252, 0.3);
+  }
+  #productoadd{
+      display: none;
+      transition: all .25s ease;
+  }
+  .modified{
+      display: none;
+  }
+  .logo{
+width: 12em;
+margin-left: 8px;
 }
 
 .navbar-brand>img{
-    height: 50px;
-    margin-left:10px;
+height: 50px;
+margin-left:10px;
 }
 
 .fa-search{
-    color: black;
+color: black;
 }
 header{
-    background: var(--bg-color)!important;
-    color: var(--color)!important;
+background: var(--bg-color)!important;
+color: var(--color)!important;
 }
 .input-group{
-    margin-left: 19%;
+margin-left: 19%;
 }
 
 .container-box
 {
-    display:inline-block; 
-    padding:10px; 
-    background: rgba(255, 255, 255, .8);
-    border: 1px solid #fff; 
-    position: fixed;
-    top: 55%;
-    left: 0;
+display:inline-block; 
+padding:10px; 
+background: rgba(255, 255, 255, .8);
+border: 1px solid #fff; 
+position: fixed;
+top: 55%;
+left: 0;
 }
 
 
 .rotated
 {
-    -moz-transform:rotate(-90deg);
-    -ms-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    -webkit-transform:rotate(-90deg);
-    transform-origin: top left;  
+-moz-transform:rotate(-90deg);
+-ms-transform:rotate(-90deg);
+-o-transform:rotate(-90deg);
+-webkit-transform:rotate(-90deg);
+transform-origin: top left;  
 }
 
 .botones{
-    float: right;
+float: right;
 }
 
 .modal-header .close{
-    padding:0;
-    margin:0;
+padding:0;
+margin:0;
 }
 .logout{
-    background:var(--bg-color)!important; color:var(--color);
-    border-color:var(--color);
+background:var(--bg-color)!important; color:var(--color);
+border-color:var(--color);
 }
 .logout:hover{
-    background:var(--color)!important; color:var(--bg-color);
+background:var(--color)!important; color:var(--bg-color);
 }
-    </style>
 
+    </style>
 </head>
 <body>
-<?php include("../../assets/mod/getproductos.php");?>
-
     <script src="../../assets/js/dark-mode.js"></script>
 <header class="header">
     <nav class="navbar navbar-expand-lg sticky-top  shadow">
       <a class="navbar-brand" href="../../">
       	<img id="mylogo" src="../../media/img/logo1.png">
       </a>
+      <button class="navbar-toggler" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
     <div class="w-100 d-flex justify-content-end">
-        <ul class="nav navbar-nav align-items-center">
+        <ul class="nav navbar-nav justify-content-end align-items-center">
         <li class="nav-item">
             <?php
             if ($username != "") {
@@ -329,11 +331,12 @@ header{
             <li class="nav-item">
             <button type="button" class="ml-3 logout btn btn-light" onclick="window.location.href= '../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'"><i class="fas fa-sign-out-alt"></i> <span>Sign out</span></button>
             </li>
-            <li class="nav-item mr-2">
+            <li class="nav-item">
             	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
           	</li>
         </ul>
     </div>
+  </div>
    </nav>
 </header>
 <div class="p-0 container-fluid">
@@ -380,6 +383,22 @@ header{
                                     <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
                                     </div>";
                                 }
+                                if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "412"){
+                                    //Borrar cookie
+                                        unset($_SESSION["__usrerr__"]);
+                                        echo"<div class='mt-5 alert alertwarning- alert-dismissible fade show' role='alert'>
+                                        <strong>¡Qué pena!</strong> No ha sido posible borrar el producto...
+                                        <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                        </div>";
+                                    }
+                                    if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "312"){
+                                        //Borrar cookie
+                                            unset($_SESSION["__usrerr__"]);
+                                            echo"<div class='mt-5 alert alert-danger alert-dismissible fade show' role='alert'>
+                                            <strong>¡Qué pena!</strong> No ha sido posible borrar el usuario...
+                                            <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'></button>
+                                            </div>";
+                                        }
                             if(isset($_SESSION["__sucess__"]) && $_SESSION["__sucess__"] == "true"){
                                 //Borrar cookie
                                     unset($_SESSION["__sucess__"]);
@@ -504,7 +523,7 @@ header{
                     <div style='    padding: 3rem!important;
     background-color: #f2f2f2;
     color: black;' class='container p-4'>
-                        <form class='text-left needs-validation' action='../../assets/mod/addProducto.php' method='post' autocomplete='off' enctype='multipart/form-data'>
+                        <form class='text-left needs-validation' action='../../assets/mod/addProducto.php' method='post' autocomplete='off' enctype='multipart/form-data' novalidate>
                           <div class='form-group row'>
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Nombre</label>
                             <div class='col-sm-10'>
@@ -530,8 +549,7 @@ header{
                             <label for='inputPassword3' class='col-sm-2 col-form-label'>Categoria</label>
                             <div class='col-sm-10'>
                                     <select name='categoria' class='custom-select mr-sm-2' id='inlineFormCustomSelect' required>
-                                        <option selected>Elige...</option> 
-                                        <option value=''>Ninguna</option>
+                                        <option value='' selected>Ninguna</option>
                                         <option value='Vegano'>Vegano</option>
                                         <option value='Vegetariano'>Vegetariano</option>
                                         <option value='Intolerancia'>Intolerancia</option>
@@ -561,7 +579,7 @@ header{
                             <label for='inputEmail3' class='col-sm-2 col-form-label'>Imagen</label>
                             <div class='col-sm-10'>
                           <div class='custom-file'>
-                          <input type='file' class='custom-file-input' name='file' id='customFile' required>
+                          <input type='file' class='form-control custom-file-input' accept='image/png' name='file' id='customFile' required>
                          </div>
                          </div> 
                         </div>

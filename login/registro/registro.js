@@ -5,7 +5,7 @@ $(document).ready(function () {
         document.getElementById('usrv').style.display="none";
         document.getElementById('usrt').style.display="none";
         document.getElementById('usru').style.display="none";
-
+        document.getElementById('ussp').style.display="none";
         document.getElementById('emav').style.display="none";
         document.getElementById('emac').style.display="none";
         document.getElementById('emau').style.display="none";
@@ -38,6 +38,8 @@ $(document).ready(function () {
                         else if (data[2] == 2)
                             usrt();
                         else if (data[2] == 3)
+                            ussp();
+                        else if (data[2] == 4)
                             usru();
                         if (data[3] == 1)
                             emav();
@@ -83,6 +85,10 @@ function usrv(){
 };
 function usrt(){
     document.getElementById('usrt').style.display="block";
+    document.getElementById('inputusrid').style.border="1px solid red";
+};
+function ussp(){
+    document.getElementById('ussp').style.display="block";
     document.getElementById('inputusrid').style.border="1px solid red";
 };
 function usru(){

@@ -22,10 +22,12 @@ $clav1 = mysqli_real_escape_string($conexion,utf8_decode($_POST['inputPassword1'
     $errors += 100;
   else if (strlen($userid) >= 25) 
     $errors += 200;
+  else if(strpos($userid, " "))
+    $errors += 300; 
   else{
     $sol = mysqli_query($conexion,"SELECT * FROM ".$table." WHERE userid = '".$userid."'");
     if (mysqli_num_rows($sol) != 0)
-      $errors += 300;
+      $errors += 400;
   }
 
   if($email == ""){
