@@ -309,7 +309,7 @@ background:var(--color)!important; color:var(--bg-color);
 <body>
     <script src="../../assets/js/dark-mode.js"></script>
 <header class="header">
-    <nav class="navbar navbar-expand-lg sticky-top  shadow">
+    <nav class="navbar navbar-expand-lg sticky-top shadow">
       <a class="navbar-brand" href="../../">
       	<img id="mylogo" src="../../media/img/logo1.png">
       </a>
@@ -586,7 +586,7 @@ background:var(--color)!important; color:var(--bg-color);
                         <br>
                           <div class='form-group row'>
                             <div class='col-sm-10' style='float: right'>
-                              <button type='submit' name='submit' class='btn btn-primary'>Sign in</button>
+                              <button type='submit' name='submit' class='btn btn-primary'>Añadir Producto</button>
                             </div>
                           </div>
                         </form>

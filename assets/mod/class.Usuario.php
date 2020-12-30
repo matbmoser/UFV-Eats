@@ -8,11 +8,11 @@
  */
 class Usuario{
     private $dbHost     = "localhost";
-    private $dbUsername = "root";
-    private $dbPassword = "NdVd4XxwoBfJ4Qx1";
-    private $dbName     = "ufveats";
+    private $dbUsername = "id11631880_matbmoser";
+    private $dbPassword = "a(dux>kqT%IMr(=7";
+    private $dbName     = "id11631880_hypetech";
     private $table      = "user";
-    
+
     
     public function __construct(){
         if(!isset($this->db)){
@@ -190,6 +190,12 @@ class Usuario{
      */
     function checkUser($userData = array()){
         if(!empty($userData)){
+<<<<<<< HEAD
+            // Check whether user data already exists in database with same oauth info
+            $prevQuery = "SELECT * FROM ".$this->table." WHERE oauth_provider = '".$userData['oauth_provider']."' AND oauth_uid = '".$userData['oauth_uid']."'";
+            $prevResult = $this->db->query($prevQuery);
+=======
+>>>>>>> 97106070931398f85b844d83686397bfdc538af9
             
             // Check whether user data already exists in database with same email
             $prevQuery2 = "SELECT * FROM ".$this->table." WHERE email != '' AND email = '".$userData['email']."'";
@@ -219,7 +225,11 @@ class Usuario{
                 }
 
                 //prepare sql query
+<<<<<<< HEAD
+                $query = "UPDATE ".$this->table." SET oauth_provider = '".$userData['oauth_provider']."', oauth_uid = '".$userData['oauth_uid']."', modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
+=======
                 $query = "UPDATE ".$this->table." SET modified = '".$userData['modified']."' WHERE email = '".$userData['email']."'";
+>>>>>>> 97106070931398f85b844d83686397bfdc538af9
     
                 //update data
                 $update = $this->db->query($query);

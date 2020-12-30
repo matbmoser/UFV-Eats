@@ -4,7 +4,7 @@
 // ERROR POR FALLA DE SEGURIDAD
 function error151(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/index.php?result=3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b');
+    header('Location: https://'.$host.'/IS2/login/index.php?result=3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b');
     exit;
 }
 
@@ -12,7 +12,7 @@ function error151(){
 // ERROR POR FALTA DE SESSIÓN INICIADA
 function error101(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/index.php?result=0');
+    header('Location: https://'.$host.'/IS2/login/index.php?result=0');
     exit;
 }
 
@@ -20,7 +20,7 @@ function error101(){
 // ERROR POR NO PODER AÑADIR PRODUCTO
 function error421(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "421";
     }else{
@@ -32,7 +32,7 @@ function error421(){
 // ERROR POR LA IMAGEN
 function error521(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "521";
     }else{
@@ -44,7 +44,7 @@ function error521(){
 // ERROR AL AÑADIR
 function error621(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "621";
     }else{
@@ -56,7 +56,7 @@ function error621(){
 // ERROR AL NO PODER CAMBIAR ROL
 function error212(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "212";
     }else{
@@ -69,7 +69,7 @@ function error212(){
 // ERROR AL NO BORRAR USUARIO
 function error312(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "312";
     }else{
@@ -82,7 +82,7 @@ function error312(){
 // ERROR AL NO BORRAR PRODUCTO
 function error412(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrerr__"] = "412";
     }else{
@@ -97,7 +97,7 @@ function error412(){
 // 
 function success(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__sucess__"] = "true";
     }else{
@@ -108,7 +108,7 @@ function success(){
 // Sucesso al borrar producto
 function success_off(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__sucess__"] = "false";
     }else{
@@ -120,7 +120,7 @@ function success_off(){
 // Sucesso al cambiar rol usuario
 function usrsuccess(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrsucess__"] = "true";
     }else{
@@ -133,7 +133,7 @@ function usrsuccess(){
 // Sucesso al borrar usuario
 function usrsuccess_off(){
     $host = $_SERVER['HTTP_HOST'];
-    header('Location: http://'.$host.'/IS2/login/usuario/index.php');
+    header('Location: https://'.$host.'/IS2/login/usuario/index.php');
     if(!empty(session_id())){
         $_SESSION["__usrsucess__"] = "false";
     }else{

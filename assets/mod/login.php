@@ -5,7 +5,7 @@ if (empty($_POST['names']) || empty($_POST['numbers']) || $_POST['numbers'] == '
     echo json_encode(array('success' => '0'));
 
 } else {
-    include ("connect.php");
+    require_once("connect.php");
     require_once("sha.php");
     $sql = "SELECT `userid` AS ID, `email` AS CORREO ,`password` AS PASS from `user` where `email`="."'".mysqli_real_escape_string($conexion,$_POST['names'])."'"." AND `password`="."'".mysqli_real_escape_string($conexion,$_POST['numbers'])."'";
     if($result = $conexion->query($sql)){

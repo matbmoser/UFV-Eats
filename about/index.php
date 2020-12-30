@@ -11,7 +11,6 @@
   document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
  //]]>
 </script>
-  <link rel="stylesheet" href="../assets/css/tether.min.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
   <script src="https://kit.fontawesome.com/d2b8efb2df.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -22,16 +21,19 @@
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <link rel="stylesheet" href="../assets/bt/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../assets/bt/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../assets/bt/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="../assets/bt/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <style>
       body{
+          background:white!important;
         color:black!important;
       }
     </style>
 </head>
+<script src="../assets/js/dark-mode.js"></script>
 <div id="page-wrapper" class="c container-fluid" style="padding: 0;">
+<?php include("../assets/mod/header.php");?>
 <div class="c7 img1 parallax-background container-fluid">
             <div class="soft">
                 <div class="c2 d-flex align-items-center fadeIn">
@@ -192,10 +194,13 @@
               </div>
             </div>
           </div>
-</section>
+    </section>
 </div>
+</body>
+</html>
 <script src="../assets/js/tether.min.js"></script>
   <script src="../assets/js/jarallax.min.js"></script>
   <script src="../assets/js/parallax.js"></script>
   <script src="../assets/js/smooth-scroll.js"></script>
   <script src="../assets/js/theme.js"></script>
+  

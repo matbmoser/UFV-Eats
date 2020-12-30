@@ -52,6 +52,8 @@
     <link href="floating-labels.css" rel="stylesheet">
   </head>
 <body class="body">
+<script src="../assets/bt/js/bootstrap.js"></script>
+<script src="../assets/js/check.js"></script>
 <script src="../assets/js/dark-mode.js"></script>
   <header class="user fixed-top">
       <div class="container-fluid p-0">
@@ -156,9 +158,7 @@
       </div>
   </form>
 </main>
-<script src="../assets/bt/js/bootstrap.js"></script>
 <script src="../assets/js/libs/crypto-js/aes.js"></script>
-<script src="../assets/js/check.js"></script>
     <style>
         a.google {
             border-color: #eee !important;
