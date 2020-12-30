@@ -24,7 +24,7 @@ function actualizarusuario($id){
 function actualizarproducto($id){
     include("connect.php");
     $ok = false;
-    $up1 = 'UPDATE user SET id = id - 1 WHERE id >= \''.$id.'\'';
+    $up1 = 'UPDATE producto SET id = id - 1 WHERE id >= \''.$id.'\'';
     if($conexion->query($up1) === TRUE){
         $q2 = 'SELECT id FROM producto ORDER BY id DESC LIMIT 1';
         if($result = $conexion->query($q2)){
