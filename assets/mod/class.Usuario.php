@@ -8,11 +8,11 @@
  */
 class Usuario{
     private $dbHost     = "localhost";
-    private $dbUsername = "root";
-    private $dbPassword = "NdVd4XxwoBfJ4Qx1";
-    private $dbName     = "ufveats";
+    private $dbUsername = "id11631880_matbmoser";
+    private $dbPassword = "a(dux>kqT%IMr(=7";
+    private $dbName     = "id11631880_hypetech";
     private $table      = "user";
-    
+
     
     public function __construct(){
         if(!isset($this->db)){
