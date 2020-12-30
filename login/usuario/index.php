@@ -586,7 +586,7 @@ background:var(--color)!important; color:var(--bg-color);
                         <br>
                           <div class='form-group row'>
                             <div class='col-sm-10' style='float: right'>
-                              <button type='submit' name='submit' class='btn btn-primary'>Sign in</button>
+                              <button type='submit' name='submit' class='btn btn-primary'>Añadir Producto</button>
                             </div>
                           </div>
                         </form>
