@@ -156,7 +156,6 @@ body {
     width: 12em;
     margin-left: 8px;
 }
-<<<<<<< HEAD
 
 .navbar-brand>img{
     height: 70px;
@@ -276,7 +275,7 @@ input[type=submit] {
     margin-top: 95px;
     right: -200%;
     text-align: center;
-=======
+    }
 #logo{
   width: 250px;
   height: 65px;
@@ -324,6 +323,5 @@ input[type=submit] {
     width: 250px;
     height: 65px;
     margin: 22px 0px 40px 0px;
->>>>>>> f2744d8228094ff179f67b2b3e289dfc93b1f3c3
   }
 }
