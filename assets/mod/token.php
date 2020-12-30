@@ -8,7 +8,7 @@ $id = $_SESSION['id'];
     $query = "SELECT `userid` AS ID, `email` AS CORREO ,`password` AS PASS from `user` where `userid`="."'".mysqli_real_escape_string($conexion,$id)."'";
     if($result = $conexion->query($query)){
         $row = $result->fetch_object();
-        $r_token = sha256($row->CORREO.$row->PASS);
+            $r_token = sha256($row->CORREO.$row->PASS);
             if($row->ID != NULL && $token == $r_token){
                 $username = $row->ID;
             }else{

@@ -9,7 +9,6 @@ if (!empty( $_GET )) {
    }else{
     session_destroy();
     error151();
-   }
-   
+   }   
 }
 ?>
