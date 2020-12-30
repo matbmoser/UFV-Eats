@@ -1,44 +1,42 @@
-<!--<script src="assets/js/dark-mode.js"></script>-->
-<header class="header">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark shadow justify-content-sm-start">
+<?include("../assets/mod/getproductos.php");?>
+<header class="header sticky-top">
+    <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
       <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
-      	<img id="mylogo" src="../../media/img/logo1.png">
+      	<img id="mylogo" src="../media/img/logo1.png">
       </a>
 
-      <button class="navbar-toggler align-self-start mt-3" type="button">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler align-self-start mt-3" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
       </button>
 
-	<div class="collapse navbar-collapse bg-dark d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end p-3 p-lg-0 mobileMenu" id="navbarSupportedContent">
-        <div class="d-flex w-50 justify-content-center">
+	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
+		<div  class="p-3 w-100 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
+		<div class="d-flex w-100 align-items-center justify-content-center">
           <div class="autocomplete">
-            <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:400px;">
+            <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
           </div>
-            <button class="btn btn-light" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
+            <button class="invertbd btn" style="margin:0!important;" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
         </div>
-        <ul class="navbar-nav align-self-center">
+        <ul class="navbar-nav d-flex align-items-center">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            <a class="invert nav-link" href="../">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
+            <a class="invert nav-link" href="#">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Contacto</a>
+            <a class="invert nav-link" href="#" data-toggle="modal" data-target="#myModal">Contacto</a>
           </li>
           <li class="nav-item">
-				  <a class="nav-link "href="/login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user mr-1 ml-1" style="color:white;"></i></a>
+				  <a class="nav-link "href="../login/"><i class="invert icono far fa-user mr-1 ml-1"></i></a>
 			    </li>
-        	<li class="nav-item">
-            	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
-          	</li>
-        </ul>
-    </div>
+		</ul>
+        <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+	</div>
+	</div>
    </nav>
 </header>
-
-<body>
   <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" style="max-width: 760px;">
@@ -96,7 +94,6 @@
                     </div>
                 </div>
             </div>
-</body>
 
 <script>
 $(function() {
@@ -143,8 +140,17 @@ $(document).ready(function(){
     menu(); 
   });
 });
-</script>
+$(document).ready(function(){
+	var search = document.getElementById("search");
+	search.addEventListener('click',function(){
+		var producto = document.getElementById("search").dataset["target"];
+	if(producto !== "producto"){
+		window.location.href = "./#"+producto;
+	}
+	});
+});
 
+</script>
 <script>
 function autocomplete(inp, arr, ids) {
   /*the autocomplete function takes two arguments,
@@ -244,12 +250,6 @@ function autocomplete(inp, arr, ids) {
       closeAllLists(e.target);
   });
 }
-
-<?php // include ("assets/mod/getproductos.php");?>
-/*An array containing all the country names in the world:*/
-var productos = ['Bocadillo de tortilla','Bocadillo de york y queso','Bocadillo vegetal con huevo duro','Bocadillo vegetal','Bocadillo de jamón serrano y brie ','Bodadillo de lomo de cerdo','Pescado con patatas','Ensalada sin huevo','Ensalada con atún y huevo','Ensalada de pasta','Pollo a la plancha con patatas','Paella','Menestra de verduras','Espaguettis a la carbonara','Sopa','Lentejas','Lasaña','Canelones boloñesa','Canelones espinacas','Pollo asado con patatas','Flan ','Natillas','Flan de chocolate','Tiramisu','Yogurt','Tortilla de Patatas','Perrito Caliente','Chocolate','Cerveza','Donut'];
-
-var idproductos = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), productos, idproductos);

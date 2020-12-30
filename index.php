@@ -97,7 +97,6 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link href="assets/bt/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
-	<script src="assets/bt/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<link rel="icon" href="media/favicon.ico" type="image/x-icon">
@@ -107,27 +106,28 @@
 		text-decoration: none!important;
 	}
 	.selected{
-		background:var(--bg-color)!important;
-		color:var(--color)!important;
+		background:var(--color)!important;
+		color:var(--bg-color)!important;
 		transition: all .25s ease;
 	}
 </style>
 </head>
 <script src="assets/js/dark-mode.js"></script>
 <?php include("assets/mod/getproductos.php") ?>
-<header class="header">
-    <nav class="navbar navbar-expand-lg sticky-top shadow justify-content-sm-start">
+<header class="header sticky-top">
+    <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
       <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
       	<img id="mylogo" src="media/img/logo1.png">
       </a>
 
-      <button class="navbar-toggler align-self-start mt-3"style="border-radius: 0!important;" type="button">
+      <button class="navbar-toggler align-self-start mt-3" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
 
-	<div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end p-3 p-lg-0 mobileMenu" id="navbarSupportedContent">
-        <div class="d-flex w-100 justify-content-center">
+	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
+		<div  class="p-3 w-100 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
+		<div class="d-flex w-100 justify-content-center">
           <div class="autocomplete">
             <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
           </div>
@@ -135,82 +135,25 @@
         </div>
         <ul class="navbar-nav d-flex align-items-center">
           <li class="nav-item active">
-            <a class="invert nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            <a class="invert nav-link" href="#">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="invert nav-link" href="#">Nosotros</a>
+            <a class="invert nav-link" href="./about/">Nosotros</a>
           </li>
           <li class="nav-item">
             <a class="invert nav-link" href="#" data-toggle="modal" data-target="#myModal">Contacto</a>
           </li>
           <li class="nav-item">
-				  <a class="nav-link "href="/login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="invert icono far fa-user mr-1 ml-1"></i></a>
+				  <a class="nav-link " href="./login/" ><i class="invert icono far fa-user mr-1 ml-1"></i></a>
 			    </li>
 		</ul>
         <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
-    </div>
+	</div>
+	</div>
    </nav>
 </header>
 
-<body>
-  <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" style="max-width: 760px;">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Contacto</h4>
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="contact.php" method="post" novalidate class="needs-validation">
-                                <p> Rellene el siguiente formulario explicando de forma detallada el motivo de su consulta. </p>
-                                <p> Los campos requeridos están marcados con *. </p>
-                                <div class="form-group">
-                                    <label for="name"> Nombre completo*</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo..." required maxlength="50">
-                                    <div class="valid-feedback">Valido</div>
-                                    <div class="invalid-feedback">Completa este campo por favor.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email"> Email*</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required maxlength="50">
-                                    <div class="valid-feedback">Valido</div>
-                                    <div class="invalid-feedback">Completa este campo por favor.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="consulta"> Motivo de la consulta*</label>
-                                    <select id="consulta" class="form-control" name="consulta" required>
-                                        <option value="Ninguno">Elige..</option>
-                                        <option value="Comida">Duda con alguna comida.</option>
-                                        <option value="Web">Problema con la página web.</option>
-                                        <option value="Otro">Otro.</option>
-                                    </select>
-                                    <div class="valid-feedback">Valido</div>
-                                    <div class="invalid-feedback">Completa este campo por favor.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="asunto">Asunto*</label>
-                                    <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto de la consulta..." maxlength="1000" required>
-                                    <div class="valid-feedback">Valido</div>
-                                    <div class="invalid-feedback">Completa este campo por favor.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name"> Mensaje*</label>
-                                    <textarea class="form-control" type="textarea" name="mensaje" id="mensaje" placeholder="Escriba su mensaje aquí..." maxlength="6000" rows="7" required></textarea>
-                                    <div class="valid-feedback">Valido</div>
-                                    <div class="invalid-feedback">Completa este campo por favor.</div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="cancel" class="btn btn-secondary btn-lg mr-4 ml-4 mt-3" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary btn-lg mr-2 mt-3" id="btnContactUs">Enviar &rarr;</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-</body>
+
 
 <script>
 $(function() {
@@ -257,8 +200,17 @@ $(document).ready(function(){
     menu(); 
   });
 });
-</script>
+$(document).ready(function(){
+	var search = document.getElementById("search");
+	search.addEventListener('click',function(){
+		var producto = document.getElementById("search").dataset["target"];
+	if(producto !== "producto"){
+		window.location.href = "./#"+producto;
+	}
+	});
+});
 
+</script>
 <script>
 function autocomplete(inp, arr, ids) {
   /*the autocomplete function takes two arguments,
@@ -428,6 +380,62 @@ $(document).ready(function(){
 					</a>
 				</div>
 			</div>
+			<div id="myModal" class="modal fade" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="max-width: 760px;">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Contacto</h4>
+                            <button type="button" class="btn close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="contact.php" method="post" novalidate class="needs-validation">
+                                <p> Rellene el siguiente formulario explicando de forma detallada el motivo de su consulta. </p>
+                                <p> Los campos requeridos están marcados con *. </p>
+                                <div class="form-group">
+                                    <label for="name"> Nombre completo*</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo..." required maxlength="50">
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"> Email*</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required maxlength="50">
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="consulta"> Motivo de la consulta*</label>
+                                    <select id="consulta" class="form-control" name="consulta" required>
+                                        <option value="Ninguno">Elige..</option>
+                                        <option value="Comida">Duda con alguna comida.</option>
+                                        <option value="Web">Problema con la página web.</option>
+                                        <option value="Otro">Otro.</option>
+                                    </select>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asunto">Asunto*</label>
+                                    <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto de la consulta..." maxlength="1000" required>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"> Mensaje*</label>
+                                    <textarea class="form-control" type="textarea" name="mensaje" id="mensaje" placeholder="Escriba su mensaje aquí..." maxlength="6000" rows="7" required></textarea>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="cancel" class="btn btn-secondary btn-lg mr-4 ml-4 mt-3" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary btn-lg mr-2 mt-3" id="btnContactUs">Enviar &rarr;</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			</div>
 			<div class="container-fluid prim">
 			<div class="row">
@@ -478,7 +486,7 @@ $(document).ready(function(){
 	}
 	.info{
 		border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+    	border-bottom-left-radius: 6px;
 	}
 	.dat{
 		width: 100%;
@@ -584,8 +592,9 @@ $(document).ready(function(){
     max-width: 800px;
     height: 500px;
     position: relative;
-    display: flex;
-    background: white;
+	display: flex;
+	color:var(--bg-color)!important;
+    background: var(--color);
     visibility: hidden;
     top: -80%;
     left: -80%;
@@ -628,14 +637,20 @@ $(document).ready(function(){
     right: -20px;
     top: -20px;
     padding: 20px;
-    background: black;
-    color: white;
+    background: var(--bg-color);
+    color: var(--color);
     border-radius: 50%;
-    line-height: 10px;
+	line-height: 10px;
+	transition: all .25s ease;
+}
+.btn-close-popup:hover{
+	background: var(--color);
+	color: var(--bg-color);
+	transition: all .25s ease;
 }
 .bot:hover{
-	background: var(--bg-color);
-	color:var(--color);
+	background: var(--color);
+	color:var(--bg-color);
 	transition: all .25s ease;
 }
     .bot{
@@ -643,8 +658,8 @@ $(document).ready(function(){
 		box-shadow: none;
 		border: 1px solid var(--color);
 		border-radius: 0;
-		color: var(--bg-color);
-		background: var(--color);
+		color: var(--color);
+		background: var(--bg-color);
     }
 
 @media screen and (max-width: 900px){
@@ -685,5 +700,118 @@ $(document).ready(function(){
 <script>
 
 </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+        footer 
+        {
+            padding: 8em 0 10px 0;
+			background: var(--bg-color);
+			border-top: 1px solid var(--color);
+			text-align: center;
+			margin: 65px 26px 0 26px;
+            display: block;
+        }
+        footer .copyright 
+        {
+            color: var(--color);
+			list-style: none;
+			font-family: 'Arial';
+            text-align: center;
+        }
+        footer  p
+        {
+            color: var(--color);
+            list-style: none;
+            text-align: center;
+            font-size: 1em;
+            font-family: 'Arial';
+		}
+		footer  h1
+        {
+            color: var(--color);
+            list-style: none;
+            text-align: center;
+			font-family: 'Arial';
+			margin-bottom: 20px;
+        }
+        footer li 
+        {
+            display: inline;
+            line-height: 3.5em;
+            padding: 0.5em;
+            font-family: 'Arial';
+        }
+        /* CSS margenes por abajo  */
+        footer ul
+        {
+			padding: 0!important;
+            margin-bottom: 1.5rem!important;
+        }
+        /* CSS info@ufveats.es */
+        footer .copyright a
+        {
+            color: var(--color);
+			font-family: 'Arial';
+			padding: 0px 52px;
+			font-weight: 400;
+        }
+        footer .copyright a:hover
+        {
+           opacity: 0.6;
+        }
+        /*  */
+        footer .copyright table 
+        {
+          border: 1px solid var(--color);
+          margin-left: auto;
+          margin-right: auto;
+        }
+        /* CSS imagen sobre */
+        footer .copyright img
+        {
+            display: block;
+            width: 45px;
+        }
+        footer .eslogan li
+        {
+            color: var(--color);
+            list-style: none;
+            text-align: center;
+            font-size: 1em;
+            font-family: 'Arial';
+        }
+		footer .email{
+			font-size: 36px;
+			padding: 6px 10px;
+			border-right: 1px solid var(--color);
+			color: var(--color);
+		}
+        </style>
+    <footer id="footer">
+        <h1>¿Tienes Dudas?</h1>
+        <ul class="copyright">
+            <table>
+                <tr>
+                       <th><i class="email fas fa-envelope"></i></th>
+					   <th><a href="mailto:ufveats@gmail.com">ufveats@gmail.com</a></th>
+				</tr>
+            </table> 
+        </ul>
+        <ul class="copyright">
+            <li><strong>UFV eats</strong></li>
+            <span class="punt">|</span>
+			<li>Todos los derechos reservados</li>
+			<span class="punt">|</span>
+			<li> ©️2020 - 2021 </li>
+    
+        </ul>
+        <ul class="eslogan">
+            <li>"Por una cafeteria para todos"</li>
+        </ul>
+        <ul class="ufv"> 
+                <img src="media/img/Ufv2.png"></img>
+        </ul>
+    </footer>
 </body>
+<script src="assets/bt/js/bootstrap.min.js"></script>
 </html>
