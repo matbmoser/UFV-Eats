@@ -1,19 +1,3 @@
-<!doctype html>
-<html lang="es">
-<head>
-	<title>UFV Eats: Inicio</title>
-  <meta charset="utf-8">
- 	<link rel="shortcut icon" href="">
- 	<link href="../css/main.css" rel="stylesheet">
- 	<link href="../bt/css/bootstrap.min.css" rel="stylesheet">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 	
-	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-
-<body>
 <!--<script src="assets/js/dark-mode.js"></script>-->
 <header class="header">
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark shadow justify-content-sm-start">
@@ -54,7 +38,33 @@
    </nav>
 </header>
 
-<script src="../js/menumovil.js"></script>
+<script>
+  var contador = 1;
+ 
+function menu(){
+ 
+    if(contador == 1){
+
+      $(".mobileMenu").animate({
+        right: '0'
+      });
+      contador = 0;
+    } else {
+      contador = 1;
+      $(".mobileMenu").animate({
+        right: '-200%'
+      });
+    }
+ 
+}; 
+
+$(document).ready(function(){
+  $(".navbar-toggler").click( function() {
+    menu(); 
+  });
+});
+</script>
+
 <script>
 function autocomplete(inp, arr, ids) {
   /*the autocomplete function takes two arguments,
