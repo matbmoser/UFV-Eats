@@ -1,4 +1,3 @@
-<?php include 'conexion.php';?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -156,6 +155,7 @@ function autocomplete(inp, arr, ids) {
   });
 }
 
+<?php // include ("assets/mod/getproductos.php");?>
 /*An array containing all the country names in the world:*/
 var productos = ['Bocadillo de tortilla','Bocadillo de york y queso','Bocadillo vegetal con huevo duro','Bocadillo vegetal','Bocadillo de jamón serrano y brie ','Bodadillo de lomo de cerdo','Pescado con patatas','Ensalada sin huevo','Ensalada con atún y huevo','Ensalada de pasta','Pollo a la plancha con patatas','Paella','Menestra de verduras','Espaguettis a la carbonara','Sopa','Lentejas','Lasaña','Canelones boloñesa','Canelones espinacas','Pollo asado con patatas','Flan ','Natillas','Flan de chocolate','Tiramisu','Yogurt','Tortilla de Patatas','Perrito Caliente','Chocolate','Cerveza','Donut'];
 
