@@ -1,4 +1,75 @@
+<?php
+	function Mostrarproducto($cat){
+			include("assets/mod/connect.php");
+		if (!$conexion) {
+		die('No se ha podido conectar a la base de datos');
+	}
+	else{
 
+	$table = "producto";
+	$result=mysqli_query($conexion,"SELECT * FROM ".$table."");
+	$cols=mysqli_num_rows($result);
+	$mos=0;
+	for($id=1; $id <= $cols; $id++){
+		if($cat == "none")
+				$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."'");
+		else
+		$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."' AND categoria = '".$cat."'");
+	$res=mysqli_fetch_array($so1);
+	if(isset($res)){
+	if($res['categoria']=="Hipocalorica" || $res['categoria']=="Hipercalorica" || $res['categoria']=="Proteica")
+	$categoria = "Especial";
+	else if($res['categoria']=="Vegetariano" || $res['categoria']=="Vegano")
+	$categoria = "Veg";
+	else
+	$categoria = $res['categoria'];
+	?>
+	<div class="colu col-sm-6 col-md-4 col-lg-3">
+		<div class="tot">
+			<div class="cont">
+				<img class="dip1" src="imagenes/<?php echo $res['imagen']; ?>"/>
+				<?php
+						if($categoria!=""){
+				?>
+				<img class="icon" src="icon/<?php echo $categoria; ?>.png"/>
+				<?php
+				}
+				?>
+			</div>  	
+			<div class="dat1">
+				<div class="dat">
+					<div class="nom">
+						<h6 class="neg"><?php echo $res['nombre']; ?></h6>
+					</div>
+					<h6 class="neg"><?php echo $res['precio']?>€ <br> <?php echo $res['cantidad']?>kcal</h6>
+				</div>
+				<div class="dat">
+					<a href="#<?php echo $res['nombre']; ?>" class="btn-open-popup">Más información</a>
+				</div>
+			</div>
+		</div>   
+	</div>
+	<div class="container-all" id="<?php echo $res['nombre']; ?>">
+		<div class="popup">
+			<div class="img"><img class="dip1" src="imagenes/<?php echo $res['imagen']; ?>"/></div>
+			<div class="container-text">
+				<div class="nom">
+						<h1 class="neg"><?php echo $res['nombre']; ?></h1>
+				</div>				
+				<p><h5 class="neg">Descripción:</h5><?php echo $res['descripcion']; ?></p>
+				<p><h5 class="neg">Ingredientes:</h5><?php echo $res['ingredientes']; ?></p>
+				<p><h5 class="neg">Precio:</h5><?php echo $res['precio']; ?>€</p>
+			</div>
+			<a href="#" class="btn-close-popup">X</a>
+		</div>
+
+	</div>
+	<?php
+}
+}
+}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +82,7 @@
 	<title>Ufveats</title>
 
 </head>
+
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 $(document).ready(function(){
@@ -28,7 +100,46 @@ $(document).ready(function(){
     });
 });
 </script>
+<body>
+	<div class="container prim">
+		<div class="row">
+			<h2>Productos</h2>
+			<div class="container bots">
+				<a href="/?categoria=Alergia">
+					<button class="btn btn-default btn-lg bot">Alergia</button>
+				</a>
+				<a href="/?categoria=Proteica">
+					<span class="btn btn-default btn-lg bot">Proteica</span>
+				</a>
+				<a href="/?categoria=Hipercalorica">
+					<button class="btn btn-default btn-lg bot">Hipercalorica</button>
+				</a>
+				<a href="/?categoria=Hipocalorica">
+					<button class="btn btn-default btn-lg bot">Hipocalorica</button>
+				</a>
+				<a href="/?categoria=Vegetariano">
+				<span class="btn btn-default btn-lg bot">Vegetariano</span>
+			</a>
+			<a href="/?categoria=Vegano">
+				<span class="btn btn-default btn-lg bot">Vegano</span>
+			</a>
+			</div>
+				
+			<?php
+			if (empty($_GET["categoria"]))
+				Mostrarproducto("none");
+			else
+				Mostrarproducto($_GET["categoria"]);
+			?>
+</div>
+</div>
 <style type="text/css">
+	.bots{
+		width: 95%;
+	}
+	.row{
+		text-align: center;
+	}
 	.tot{
 		border: 2px solid #EEEEEE;
 		width: 90%;
@@ -188,6 +299,13 @@ $(document).ready(function(){
     border-radius: 50%;
     line-height: 10px;
 }
+    .bot{
+    	border: 1px solid rgba(0,0,0,0.1); 
+    	box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    	width: 15%;
+    	height: 50px;
+    	margin: auto;
+    }
 
 @media screen and (max-width: 900px){
     .popup{
@@ -224,75 +342,5 @@ $(document).ready(function(){
 }
 
 </style>
-<body>
-	<div class="container prim">
-		<div class="row">
-			<h2>Productos</h2>
-		<?php
-		include("assets/mod/connect.php");
-		if (!$conexion) {
-		die('No se ha podido conectar a la base de datos');
-	}
-	else{
-	$table = "producto";
-	$result=mysqli_query($conexion,"SELECT * FROM ".$table."");
-	$cols=mysqli_num_rows($result);
-	$mos=0;
-	for($id=1; $id <= $cols; $id++){
-	$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."'");
-	$res=mysqli_fetch_array($so1);
-	if($res['categoria']=="Hipocalorica" || $res['categoria']=="Hipercalorica" || $res['categoria']=="Proteica")
-	$categoria = "Especial";
-	else if($res['categoria']=="Vegetariano" || $res['categoria']=="Vegano")
-	$categoria = "Veg";
-	else
-	$categoria = $res['categoria'];
-	?>
-	<div class="colu col-sm-6 col-md-4 col-lg-3">
-		<div class="tot">
-			<div class="cont">
-				<img class="dip1" src="imagenes/<?php echo $res['imagen']; ?>"/>
-				<?php
-						if($categoria!=""){
-				?>
-				<img class="icon" src="icon/<?php echo $categoria; ?>.png"/>
-				<?php
-				}
-				?>
-			</div>  	
-			<div class="dat1">
-				<div class="dat">
-					<div class="nom">
-						<h6 class="neg"><?php echo $res['nombre']; ?></h6>
-					</div>
-					<h6 class="neg"><?php echo $res['precio']?>€ <br> <?php echo $res['cantidad']?>kcal</h6>
-				</div>
-				<div class="dat">
-					<a href="#<?php echo $res['nombre']; ?>" class="btn-open-popup">Más información</a>
-				</div>
-			</div>
-		</div>   
-	</div>
-	<div class="container-all" id="<?php echo $res['nombre']; ?>">
-		<div class="popup">
-			<div class="img"><img class="dip1" src="imagenes/<?php echo $res['imagen']; ?>"/></div>
-			<div class="container-text">
-				<div class="nom">
-						<h1 class="neg"><?php echo $res['nombre']; ?></h1>
-				</div>				
-				<p><h5 class="neg">Descripción:</h5><?php echo $res['descripcion']; ?></p>
-				<p><h5 class="neg">Ingredientes:</h5><?php echo $res['ingredientes']; ?></p>
-				<p><h5 class="neg">Precio:</h5><?php echo $res['precio']; ?>€</p>
-			</div>
-			<a href="#" class="btn-close-popup">X</a>
-		</div>
-
-	</div>
-	<?php
-}
-}
-?>
-</div>
-</div>
 </body>
 </html>
