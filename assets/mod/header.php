@@ -7,32 +7,34 @@
  	<link rel="shortcut icon" href="">
  	<link href="../css/main.css" rel="stylesheet">
  	<link href="../bt/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 	
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 	
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <!--<script src="assets/js/dark-mode.js"></script>-->
 <header class="header">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark shadow">
-      <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark shadow justify-content-sm-start">
+
+      <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
       	<img id="mylogo" src="../../media/img/logo1.png">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler align-self-start mt-3" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <div class="d-flex w-75 justify-content-center">
+	<div class="collapse navbar-collapse bg-dark d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end p-3 p-lg-0 mobileMenu" id="navbarSupportedContent">
+        <div class="d-flex w-50 justify-content-center">
           <div class="autocomplete">
             <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:400px;">
           </div>
             <button class="btn btn-light" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="navbar-nav align-self-center">
           <li class="nav-item active">
             <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
           </li>
@@ -53,6 +55,7 @@
    </nav>
 </header>
 
+<script src="../js/menumovil.js"></script>
 <script>
 function autocomplete(inp, arr, ids) {
   /*the autocomplete function takes two arguments,
