@@ -11,19 +11,25 @@
 	$cols=mysqli_num_rows($result);
 	$mos=0;
 	for($id=1; $id <= $cols; $id++){
-		if($cat == "none")
-				$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."'");
-		else
-		$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."' AND categoria = '".$cat."'");
+		if($cat == "none"){
+			$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."'");
+		}
+		else if($cat=="DietaEspecial"){
+			$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."' AND (categoria = 'Hipocalorica' OR categoria = 'Hipercalorica' OR categoria = 'Proteica')");
+		}else if($cat=="VeganoVegetariano"){
+			$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."' AND (categoria = 'Vegano' OR categoria = 'Vegetariano')");
+		}else{
+			$so1=mysqli_query($conexion,"SELECT * FROM ".$table." WHERE id = '".$id."' AND categoria = '".$cat."'");
+		}
 	
 	$res=mysqli_fetch_array($so1);
 	if(isset($res)){
-	if($res['categoria']=="Hipocalorica" || $res['categoria']=="Hipercalorica" || $res['categoria']=="Proteica")
-	$categoria = "Especial";
-	else if($res['categoria']=="Vegetariano" || $res['categoria']=="Vegano")
-	$categoria = "Veg";
-	else
-	$categoria = mysqli_real_escape_string($conexion,$res['categoria']);
+		if($res['categoria']=="Hipocalorica" || $res['categoria']=="Hipercalorica" || $res['categoria']=="Proteica")
+		$categoria = "Especial";
+		else if($res['categoria']=="Vegetariano" || $res['categoria']=="Vegano")
+		$categoria = "Veg";
+		else
+		$categoria = mysqli_real_escape_string($conexion,$res['categoria']);
 	?>
 	<div class="colu col-sm-6 col-md-4 col-lg-3">
 		<div class="tot">
@@ -89,11 +95,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link href="assets/bt/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
 	<script src="assets/bt/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<link rel="icon" href="media/favicon.ico" type="image/x-icon">
 	<title>UFVeats</title>
 <style>
@@ -107,8 +113,256 @@
 	}
 </style>
 </head>
+<script src="assets/js/dark-mode.js"></script>
+<?php include("assets/mod/getproductos.php") ?>
+<header class="header">
+    <nav class="navbar navbar-expand-lg sticky-top shadow justify-content-sm-start">
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+      <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
+      	<img id="mylogo" src="media/img/logo1.png">
+      </a>
+
+      <button class="navbar-toggler align-self-start mt-3"style="border-radius: 0!important;" type="button">
+        <i class="fa fa-bars"></i>
+      </button>
+
+	<div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end p-3 p-lg-0 mobileMenu" id="navbarSupportedContent">
+        <div class="d-flex w-100 justify-content-center">
+          <div class="autocomplete">
+            <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
+          </div>
+            <button class="invertbd btn" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
+        </div>
+        <ul class="navbar-nav d-flex align-items-center">
+          <li class="nav-item active">
+            <a class="invert nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="invert nav-link" href="#">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="invert nav-link" href="#" data-toggle="modal" data-target="#myModal">Contacto</a>
+          </li>
+          <li class="nav-item">
+				  <a class="nav-link "href="/login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="invert icono far fa-user mr-1 ml-1"></i></a>
+			    </li>
+		</ul>
+        <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+    </div>
+   </nav>
+</header>
+
+<body>
+  <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="max-width: 760px;">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Contacto</h4>
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="contact.php" method="post" novalidate class="needs-validation">
+                                <p> Rellene el siguiente formulario explicando de forma detallada el motivo de su consulta. </p>
+                                <p> Los campos requeridos están marcados con *. </p>
+                                <div class="form-group">
+                                    <label for="name"> Nombre completo*</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo..." required maxlength="50">
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"> Email*</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required maxlength="50">
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="consulta"> Motivo de la consulta*</label>
+                                    <select id="consulta" class="form-control" name="consulta" required>
+                                        <option value="Ninguno">Elige..</option>
+                                        <option value="Comida">Duda con alguna comida.</option>
+                                        <option value="Web">Problema con la página web.</option>
+                                        <option value="Otro">Otro.</option>
+                                    </select>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asunto">Asunto*</label>
+                                    <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto de la consulta..." maxlength="1000" required>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name"> Mensaje*</label>
+                                    <textarea class="form-control" type="textarea" name="mensaje" id="mensaje" placeholder="Escriba su mensaje aquí..." maxlength="6000" rows="7" required></textarea>
+                                    <div class="valid-feedback">Valido</div>
+                                    <div class="invalid-feedback">Completa este campo por favor.</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="cancel" class="btn btn-secondary btn-lg mr-4 ml-4 mt-3" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary btn-lg mr-2 mt-3" id="btnContactUs">Enviar &rarr;</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+<script>
+$(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Coge el formulario al que queremos añadir el estilo de validación
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+});
+
+</script>
+ 
+<script>
+  var contador = 1;
+ 
+function menu(){
+ 
+    if(contador == 1){
+
+      $(".mobileMenu").animate({
+        right: '0'
+      });
+      contador = 0;
+    } else {
+      contador = 1;
+      $(".mobileMenu").animate({
+        right: '-200%'
+      });
+    }
+ 
+}; 
+
+$(document).ready(function(){
+  $(".navbar-toggler").click( function() {
+    menu(); 
+  });
+});
+</script>
+
+<script>
+function autocomplete(inp, arr, ids) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' data-id='"+ids[i]+"' id='opt"+ids[i]+"' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              let id = this.getElementsByTagName("input")[0].dataset["id"];
+              document.getElementById("search").dataset["target"] = "producto"+id;
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), productos, idproductos);
+
+</script>
 <script>
 $(document).ready(function(){
     $('#open').on('click', function(){
@@ -126,44 +380,68 @@ $(document).ready(function(){
 });
 </script>
 <body>
-	<div class="container prim">
-		<div class="row">
-			<h2>Productos</h2>
-			<div class="container bots">
+			<div class="p-0 container-fluid bots">
 				<div class="row">
-				<div class="col-lg-6">
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia"){echo'href="./"'; }}else{echo'href="./?categoria=Alergia"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia"){echo "selected";} } ?> btn btn-default btn-lg bot">Alergia</span>
+					<div class="mt-2 col-md-3">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "VeganoVegetariano" ){echo'href="./"'; }else{echo'href="./?categoria=VeganoVegetariano"';}}else{echo'href="./?categoria=VeganoVegetariano"';}?>>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "VeganoVegetariano"){echo "selected";} }?> btn btn-default btn-lg bot">Vegano/Vegetariano</span>
 					</a>
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Proteica"){echo'href="./"'; }}else{echo'href="./?categoria=Proteica"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Proteica"){echo "selected";} }?> btn btn-default btn-lg bot">Proteica</span>
+					</div>
+					<div class="mt-2 col-md-3">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Intolerancia" ){echo'href="./"'; }else{echo'href="./?categoria=Intolerancia"';}}else{echo'href="./?categoria=Intolerancia"';}?>>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Intolerancia"){echo "selected";} }?> btn btn-default btn-lg bot">Intolerancia</span>
 					</a>
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Hipercalorica"){echo'href="./"'; }}else{echo'href="./?categoria=Hipercalorica"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Hipercalorica"){echo "selected";} }?> btn btn-default btn-lg bot">Hipercalorica</button>
+					</div>
+					<div class="mt-2 col-md-3">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "DietaEspecial" ){echo'href="./"'; }else{echo'href="./?categoria=DietaEspecial"';}}else{echo'href="./?categoria=DietaEspecial"';}?>>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "DietaEspecial"){echo "selected";} }?> btn btn-default btn-lg bot">Dieta Especial</span>
 					</a>
-				</div>
-				<div class="col-lg-6">
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Hipocalorica"){echo'href="./"'; }}else{echo'href="./?categoria=Hipocalorica"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Hipocalorica"){echo "selected";}} ?> btn btn-default btn-lg bot">Hipocalorica</button>
+					</div>
+					<div class="mt-2 col-md-3">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia" ){echo'href="./"'; }else{echo'href="./?categoria=Alergia"';}}else{echo'href="./?categoria=Alergia"';}?>>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Alergia"){echo "selected";} }?> btn btn-default btn-lg bot">Alergia</span>
 					</a>
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Vegetariano"){echo'href="./"'; }}else{echo'href="./?categoria=Vegetariano"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Vegetariano"){echo "selected";}} ?> btn btn-default btn-lg bot">Vegetariano</span>
-					</a>
-					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Vegano"){echo'href="./"'; }}else{echo'href="./?categoria=Vegano"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Vegano"){echo "selected";} }?> btn btn-default btn-lg bot">Vegano</span>
-					</a>
+					</div>
 				</div>
 			</div>
-			</div>
+			<div class="container-fluid bots">
+				<div class="row">
+				<div <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "VeganoVegetariano" ){echo'style="display:block"'; }else{echo'style="display:none"';}}else{echo'style="display:none"';}?> class="mt-2 col-lg-4">
+				<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Vegano"){echo'href="./"'; }else{echo'href="./?subcategoria=Vegano&categoria=VeganoVegetariano"';}}else{echo'href="./?subcategoria=Vegano&categoria=VeganoVegetariano"';}?>>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Vegano"){echo "selected";} }?> btn btn-default btn-lg bot">Vegano</span>
+					</a>
+				<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Vegetariano"){echo'href="./"'; }else{echo'href="./?subcategoria=Vegetariano&categoria=VeganoVegetariano"';}}else{echo'href="./?subcategoria=Vegetariano&categoria=VeganoVegetariano"';}?>>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Vegetariano"){echo "selected";}} ?> btn btn-default btn-lg bot">Vegetariano</span>
+					</a>
+				</div>
+				<div <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "DietaEspecial" ){echo'style="display:block"'; }else{echo'style="display:none"';}}else{echo'style="display:none"';}?> class="col-lg-4">
 
+				</div>
+				<div <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "DietaEspecial" ){echo'style="display:block"'; }else{echo'style="display:none"';}}else{echo'style="display:none"';}?> class="mt-2 col-lg-8">
+					<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Proteica"){echo'href="./"'; }else{echo'href="./?subcategoria=Proteica&categoria=DietaEspecial"';}}else{echo'href="./?subcategoria=Proteica&categoria=DietaEspecial"';}?>>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Proteica"){echo "selected";} }?> btn btn-default btn-lg bot">Proteica</span>
+					</a>
+					<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Hipocalorica"){echo'href="./"'; }else{echo'href="./?subcategoria=Hipocalorica&categoria=DietaEspecial"';}}else{echo'href="./?subcategoria=Hipocalorica&categoria=DietaEspecial"';}?>>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipocalorica"){echo "selected";}} ?> btn btn-default btn-lg bot">Hipocalorica</button>
+					<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Hipercalorica"){echo'href="./"'; }else{echo'href="./?subcategoria=Hipercalorica&categoria=DietaEspecial"';} }else{echo'href="./?subcategoria=Hipercalorica&categoria=DietaEspecial"';}?>>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipercalorica"){echo "selected";} }?> btn btn-default btn-lg bot">Hipercalorica</button>
+					</a>
+				</div>
+			</div>
+			</div>
+			<div class="container-fluid prim">
+			<div class="row">
 			<?php
-			if (empty($_GET["categoria"]))
+			if (empty($_GET["categoria"])&&empty($_GET["subcategoria"])) 
 				Mostrarproducto("none");
-			else
+			else if(empty($_GET["subcategoria"]))
 				Mostrarproducto($_GET["categoria"]);
+			else
+				Mostrarproducto($_GET["subcategoria"]);
 			?>
-</div>
-</div>
+			</div>
+			</div>
+	
 <style type="text/css">
 	.bots{
 		width: 95%;
@@ -178,6 +456,8 @@ $(document).ready(function(){
 		border: 2px solid #EEEEEE;
 		width: 90%;
 		border-radius: 10px;
+		color:var(--color);
+		border:1px solid var(--color);
 		background: var(--bg-color);
 	}
 	.tot:hover{
@@ -204,7 +484,7 @@ $(document).ready(function(){
 		width: 100%;
 		align-items: center;
 		padding: 10px;
-		border-top: 1px solid #EEEEEE;
+		border-top:1px solid var(--color);
 		height: 60px;
 		display: flex;
     	justify-content: center;
@@ -272,7 +552,8 @@ $(document).ready(function(){
 
 .container-all{
     width: 100%;
-    height: 100%;
+	height: 100%;
+	top: 0;
     position: fixed;
     padding: 40px;
     visibility: hidden;
@@ -286,7 +567,7 @@ $(document).ready(function(){
     background: rgba(0,0,0,0.8);
     visibility: visible;
     opacity: 1;
-    z-index: 100;
+	z-index: 2000;
 }
 
 .container-all:target .popup{
@@ -358,12 +639,11 @@ $(document).ready(function(){
 	transition: all .25s ease;
 }
     .bot{
-		width: 32.5%;
-		height: 50px;
 		margin: auto;
 		box-shadow: none;
 		border: 1px solid var(--color);
 		border-radius: 0;
+		color: var(--bg-color);
 		background: var(--color);
     }
 

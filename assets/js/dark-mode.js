@@ -61,7 +61,7 @@ $(function(){
                     }else {
                         button.classList.remove("btn-outline-light");
                         button.classList.add("btn-outline-dark");
-                        mylogo.src = location.protocol+"://"+location.hostname+"/IS2/media/img/logo2.png";
+                        mylogo.src = location.protocol+"//"+location.hostname+"/IS2/media/img/logo2.png";
                         button.innerHTML = "<i class='fas fa-moon mr-1'></i> <span>Dark Mode</span>";
                     }
         }
