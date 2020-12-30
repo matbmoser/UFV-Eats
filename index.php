@@ -126,8 +126,8 @@
       </button>
 
 	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
-		<div  class="p-3 w-100 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
-		<div class="d-flex w-100 justify-content-center">
+		<div  class="p-3 w-100 align-items-center d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
+		<div class="d-flex w-100 align-items-center justify-content-center">
           <div class="autocomplete">
             <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
           </div>
@@ -389,7 +389,7 @@ $(document).ready(function(){
                             <button type="button" class="btn close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
-                            <form action="contact.php" method="post" novalidate class="needs-validation">
+                            <form action="assets/mod/contact.php" method="post" novalidate class="needs-validation">
                                 <p> Rellene el siguiente formulario explicando de forma detallada el motivo de su consulta. </p>
                                 <p> Los campos requeridos están marcados con *. </p>
                                 <div class="form-group">
@@ -544,7 +544,9 @@ $(document).ready(function(){
 		top: 0;
 		left: 0;
 	}
-
+	.ufv>img{
+		height: 75px;
+	}
 	@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 
