@@ -37,27 +37,32 @@
 				}
 				?>
 			</div>  	
-			<div class="dat1">
 				<div class="dat">
 					<div class="nom">
 						<h6 class="neg"><?php echo $res['nombre']; ?></h6>
 					</div>
-					<h6 class="neg"><?php echo $res['precio']?>€ <br> <?php echo $res['cantidad']?>kcal</h6>
+					<h6 class="neg"><?php echo $res['precio']?> € <br> <?php echo $res['cantidad']?> kcal</h6>
 				</div>
-				<div class="dat">
-					<a href="#<?php echo $res['nombre']; ?>" class="btn-open-popup">Más información</a>
+				<a href="#producto<?php echo $res['id']; ?>" class="btn-open-popup"><div class="info dat">
+					Más información
 				</div>
-			</div>
+				</a>
 		</div>   
 	</div>
-	<div class="container-all" id="<?php echo $res['nombre']; ?>">
+	<div class="container-all" id="producto<?php echo $res['id']; ?>">
 		<div class="popup">
 			<div class="img"><img class="dip1" src="media/img/<?php echo $res['imagen']; ?>"/></div>
 			<div class="container-text">
 				<?php
-						if($res['categoria']!=""){
+					if($res['categoria']=="Hipocalorica" || $res['categoria']=="Hipercalorica" || $res['categoria']=="Proteica")
+					$categoria = "Especial";
+					else if($res['categoria']=="Vegetariano" || $res['categoria']=="Vegano")
+					$categoria = "Veg";
+					else
+					$categoria = mysqli_real_escape_string($conexion,$res['categoria']);
+						if($categoria!=""){
 				?>
-				<img class="icon" src="media/icon/<?php echo $res['categoria']; ?>.png"/>
+				<img class="iconspecial" src="media/icon/<?php echo $categoria; ?>.png"/>
 				<?php
 				}
 				?>
@@ -96,7 +101,9 @@
 		text-decoration: none!important;
 	}
 	.selected{
-
+		background:var(--bg-color)!important;
+		color:var(--color)!important;
+		transition: all .25s ease;
 	}
 </style>
 </head>
@@ -125,24 +132,24 @@ $(document).ready(function(){
 			<div class="container bots">
 				<div class="row">
 				<div class="col-lg-6">
-					<a  href="./?categoria=Alergia">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia"){echo'href="./"'; }}else{echo'href="./?categoria=Alergia"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia"){echo "selected";} } ?> btn btn-default btn-lg bot">Alergia</span>
 					</a>
-					<a href="./?categoria=Proteica">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Proteica"){echo'href="./"'; }}else{echo'href="./?categoria=Proteica"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Proteica"){echo "selected";} }?> btn btn-default btn-lg bot">Proteica</span>
 					</a>
-					<a href="./?categoria=Hipercalorica">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Hipercalorica"){echo'href="./"'; }}else{echo'href="./?categoria=Hipercalorica"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Hipercalorica"){echo "selected";} }?> btn btn-default btn-lg bot">Hipercalorica</button>
 					</a>
 				</div>
 				<div class="col-lg-6">
-					<a href="./?categoria=Hipocalorica">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Hipocalorica"){echo'href="./"'; }}else{echo'href="./?categoria=Hipocalorica"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Hipocalorica"){echo "selected";}} ?> btn btn-default btn-lg bot">Hipocalorica</button>
 					</a>
-					<a href="./?categoria=Vegetariano">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Vegetariano"){echo'href="./"'; }}else{echo'href="./?categoria=Vegetariano"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Vegetariano"){echo "selected";}} ?> btn btn-default btn-lg bot">Vegetariano</span>
 					</a>
-					<a href="./?categoria=Vegano">
+					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Vegano"){echo'href="./"'; }}else{echo'href="./?categoria=Vegano"';}?>>
 						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Vegano"){echo "selected";} }?> btn btn-default btn-lg bot">Vegano</span>
 					</a>
 				</div>
@@ -160,6 +167,9 @@ $(document).ready(function(){
 <style type="text/css">
 	.bots{
 		width: 95%;
+	}
+	.btn-open-popup{
+		color:var(--color);
 	}
 	.row{
 		text-align: center;
@@ -179,13 +189,26 @@ $(document).ready(function(){
 	.colu{
 		margin: 1.5% auto;
 	}
+	.info:hover{
+		background-color: var(--color);
+		color:var(--bg-color)!important;
+	}
+	.info:hover a{
+		color:var(--bg-color)!important;
+	}
+	.info{
+		border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+	}
 	.dat{
 		width: 100%;
-		display: flex;
 		align-items: center;
 		padding: 10px;
 		border-top: 1px solid #EEEEEE;
 		height: 60px;
+		display: flex;
+    	justify-content: center;
+		color:var(--color);
 	}
 	.cont {
 		height: 200px;
@@ -226,6 +249,12 @@ $(document).ready(function(){
 		position: absolute;
 		top: 0;
 		right: 0;
+	}
+	.iconspecial{
+		width: 40px;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
@@ -323,10 +352,19 @@ $(document).ready(function(){
     border-radius: 50%;
     line-height: 10px;
 }
+.bot:hover{
+	background: var(--bg-color);
+	color:var(--color);
+	transition: all .25s ease;
+}
     .bot{
-    	width: 32.5%;
-    	height: 50px;
-    	margin: auto;
+		width: 32.5%;
+		height: 50px;
+		margin: auto;
+		box-shadow: none;
+		border: 1px solid var(--color);
+		border-radius: 0;
+		background: var(--color);
     }
 
 @media screen and (max-width: 900px){
