@@ -47,7 +47,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
-                            <form action="contact.php" method="post" novalidate class="needs-validation">
+                            <form action="../assets/mod/contact.php" method="post" novalidate class="needs-validation">
                                 <p> Rellene el siguiente formulario explicando de forma detallada el motivo de su consulta. </p>
                                 <p> Los campos requeridos están marcados con *. </p>
                                 <div class="form-group">
