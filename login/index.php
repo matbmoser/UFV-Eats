@@ -1,4 +1,8 @@
 <?php
+  if(!isset($_SERVER['HTTPS'])){
+    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    exit();
+  }
     if(!empty($_GET)){ //Checkeamos si la variable GET esta puesta
         if(isset($_GET['result'])){
             if($_GET['result'] == "3ad735ebae3ff8aae1b3dcafa8c8bbff3e877fab8fd9cf7f3c933240f0544a0b"){
@@ -28,6 +32,11 @@
       <script src="../assets/js/libs/jquery/jquery-3.5.1.slim.min.js"></script>
       <script src="https://kit.fontawesome.com/6d67b863f5.js" crossorigin="anonymous"></script>
     <!-- Bootstrap core CSS -->
+    <script>
+ //<![CDATA[
+  document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+ //]]>
+</script>
     <link href="../assets/css/main.css" rel="stylesheet">
     <link href="../assets/bt/css/bootstrap.min.css" rel="stylesheet">
     <style>

@@ -350,7 +350,7 @@ background:var(--bg-color)!important; color:var(--color);
             <li class="tab__intern active">
                 <div class="content__wrapper">
                 <?php
-                      if($rol != "" && $rol == "0") {
+                      if($rol != "" && ($rol == "0" || $rol == "2")) {
                             if(isset($_SESSION["__usrerr__"]) && $_SESSION["__usrerr__"] == "421"){
                             //Borrar cookie
                                 unset($_SESSION["__usrerr__"]);
@@ -447,7 +447,7 @@ background:var(--bg-color)!important; color:var(--color);
                                         <th>Categoria</th>
                                         <th>Ingredientes</th>
                                         <th>Descripción</th>
-                                        <?php if($rol != "" && $rol == "0") {
+                                        <?php if($rol != "" && ($rol == "0" || $rol == "2")) {
                                         echo "<th></th>";
                                         }?>
                                     </tr>
@@ -464,7 +464,7 @@ background:var(--bg-color)!important; color:var(--color);
                                         <td>".$producto['categoria']."</td>
                                         <td>".$producto['ingredientes']."</td>
                                         <td>".$producto['descripcion']."</td>";
-                                    if($rol != "" && $rol == "0") {
+                                    if($rol != "" && ($rol == "0" || $rol == "2")) {
                                         echo " <td>
                                             <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModal" . $producto['id'] . "'>
                                               <i class='fas fa-times'></i>
@@ -479,7 +479,7 @@ background:var(--bg-color)!important; color:var(--color);
                         </div>
                         <div class="container">
                         <?php
-                        if($rol != "" && $rol == "0") {
+                        if($rol != "" && ($rol == "0" || $rol == "2")) {
                         foreach ($productos as $producto) {
                             echo "
                         <div style='color:black' class='modal fade' id='exampleModal" . $producto['id'] . "' role='dialog' >
@@ -512,12 +512,12 @@ background:var(--bg-color)!important; color:var(--color);
                         </div>
                     </section>
                         <?php
-                        if($rol != "" && $rol == "0") {
+                        if($rol != "" && ($rol == "0" || $rol == "2")) {
                         echo"<i class='add fas fa-plus-circle'></i>";
                         }?>
                 </div>
                 <?php
-                 if($rol != "" && $rol == "0") {
+                 if($rol != "" && ($rol == "0" || $rol == "2")) {
                     echo" <div class='content__wrapper' >
                     <div id = 'productoadd' >
                     <div style='    padding: 3rem!important;
@@ -761,6 +761,12 @@ background:var(--bg-color)!important; color:var(--color);
 <script src="../../assets/bt/js/bootstrap.bundle.js"></script>
 <script src="../../assets/js/parallax.js"></script>
 <?php 
+if($rol != '' && $rol == '2'){
+    echo '<script>function borrarproducto(id) {
+        if(id !== "0" && id !== ""){
+            window.location.href="../../assets/mod/delete.php?id="+id+"&admtoken='.hash('sha256',$_SESSION['token'].$username).'&type=false";
+        }}</script>';
+}
 if($rol != '' && $rol == '0') {
     echo '<script>
     var mirol = '.$rol.';
