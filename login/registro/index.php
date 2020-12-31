@@ -138,4 +138,5 @@
 })();
 </script>
   </body>
+  <script src="assets/js/smooth-scroll.js"></script>
 </html>

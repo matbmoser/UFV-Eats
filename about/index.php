@@ -12,6 +12,7 @@
  //]]>
 </script>
   <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/tether.min.css">
   <script src="https://kit.fontawesome.com/d2b8efb2df.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
@@ -21,8 +22,8 @@
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <link rel="stylesheet" href="../assets/bt/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../assets/bt/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../assets/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="../assets/bt/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <style>
       body{

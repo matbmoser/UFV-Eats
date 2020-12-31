@@ -118,18 +118,18 @@
     <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
       <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
-      	<img id="mylogo" src="media/img/logo1.png">
+      	<img id="mylogo" src="media/img/logo2.png">
       </a>
 
       <button class="navbar-toggler align-self-start mt-3" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
 
-	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
+	<div style="background:var(--color);" class="collapse navbar-collapse" id="navbarText">
 		<div  class="p-3 w-100 align-items-center d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
 		<div class="d-flex w-100 align-items-center justify-content-center">
           <div class="autocomplete">
-            <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
+            <input class="form-control mr-sm-1 busqueda" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto">
           </div>
             <button class="invertbd btn" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
         </div>
@@ -147,7 +147,7 @@
 				  <a class="nav-link " href="./login/" ><i class="invert icono far fa-user mr-1 ml-1"></i></a>
 			    </li>
 		</ul>
-        <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+        <button type="button" id="dark-mode" class="ml-lg-1 btn btn-outline-dark"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
 	</div>
 	</div>
    </nav>
@@ -332,26 +332,27 @@ $(document).ready(function(){
 });
 </script>
 <body>
+  <div class="mb-5 mt-3">
 			<div class="p-0 container-fluid bots">
 				<div class="row">
 					<div class="mt-2 col-md-3">
 					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "VeganoVegetariano" ){echo'href="./"'; }else{echo'href="./?categoria=VeganoVegetariano"';}}else{echo'href="./?categoria=VeganoVegetariano"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "VeganoVegetariano"){echo "selected";} }?> btn btn-default btn-lg bot">Vegano/Vegetariano</span>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "VeganoVegetariano"){echo "selected";} }?> w-100 btn btn-default btn-lg bot">Vegano/Vegetariano</span>
 					</a>
 					</div>
 					<div class="mt-2 col-md-3">
 					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Intolerancia" ){echo'href="./"'; }else{echo'href="./?categoria=Intolerancia"';}}else{echo'href="./?categoria=Intolerancia"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Intolerancia"){echo "selected";} }?> btn btn-default btn-lg bot">Intolerancia</span>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Intolerancia"){echo "selected";} }?> w-100 btn btn-default btn-lg bot">Intolerancia</span>
 					</a>
 					</div>
 					<div class="mt-2 col-md-3">
 					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "DietaEspecial" ){echo'href="./"'; }else{echo'href="./?categoria=DietaEspecial"';}}else{echo'href="./?categoria=DietaEspecial"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "DietaEspecial"){echo "selected";} }?> btn btn-default btn-lg bot">Dieta Especial</span>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "DietaEspecial"){echo "selected";} }?> w-100 btn btn-default btn-lg bot">Dieta Especial</span>
 					</a>
 					</div>
 					<div class="mt-2 col-md-3">
 					<a <?php if(isset($_GET["categoria"])){ if($_GET["categoria"] == "Alergia" ){echo'href="./"'; }else{echo'href="./?categoria=Alergia"';}}else{echo'href="./?categoria=Alergia"';}?>>
-						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Alergia"){echo "selected";} }?> btn btn-default btn-lg bot">Alergia</span>
+						<span class="<?php if(isset($_GET["categoria"])){if($_GET["categoria"] == "Alergia"){echo "selected";} }?> w-100 btn btn-default btn-lg bot">Alergia</span>
 					</a>
 					</div>
 				</div>
@@ -374,12 +375,13 @@ $(document).ready(function(){
 						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Proteica"){echo "selected";} }?> btn btn-default btn-lg bot">Proteica</span>
 					</a>
 					<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Hipocalorica"){echo'href="./"'; }else{echo'href="./?subcategoria=Hipocalorica&categoria=DietaEspecial"';}}else{echo'href="./?subcategoria=Hipocalorica&categoria=DietaEspecial"';}?>>
-						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipocalorica"){echo "selected";}} ?> btn btn-default btn-lg bot">Hipocalorica</button>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipocalorica"){echo "selected";}} ?>  btn btn-default btn-lg bot">Hipocalorica</button>
 					<a <?php if(isset($_GET["subcategoria"])){ if($_GET["subcategoria"] == "Hipercalorica"){echo'href="./"'; }else{echo'href="./?subcategoria=Hipercalorica&categoria=DietaEspecial"';} }else{echo'href="./?subcategoria=Hipercalorica&categoria=DietaEspecial"';}?>>
-						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipercalorica"){echo "selected";} }?> btn btn-default btn-lg bot">Hipercalorica</button>
+						<span class="<?php if(isset($_GET["subcategoria"])){if($_GET["subcategoria"] == "Hipercalorica"){echo "selected";} }?>  btn btn-default btn-lg bot">Hipercalorica</button>
 					</a>
 				</div>
-			</div>
+      </div>
+      </div>
 			<div id="myModal" class="modal fade" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" style="max-width: 760px;">
                     <!-- Modal content-->
@@ -437,8 +439,8 @@ $(document).ready(function(){
                 </div>
             </div>
 			</div>
-			<div class="container-fluid prim">
-			<div class="row">
+			<div class="p-0 container-fluid prim">
+			<div class="mr-0 ml-0 row">
 			<?php
 			if (empty($_GET["categoria"])&&empty($_GET["subcategoria"])) 
 				Mostrarproducto("none");
@@ -475,7 +477,9 @@ $(document).ready(function(){
 	}
 
 	.colu{
-		margin: 1.5% auto;
+    margin: 1.5% auto;
+    display: flex;
+    justify-content: center;
 	}
 	.info:hover{
 		background-color: var(--color);
@@ -706,23 +710,23 @@ $(document).ready(function(){
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
         footer 
         {
-            padding: 8em 0 10px 0;
-			background: var(--bg-color);
-			border-top: 1px solid var(--color);
+            padding: 8em 0 20px 0;
+			background: var(--color);
+			border-top: 1px solid var(--bg-color);
 			text-align: center;
-			margin: 65px 26px 0 26px;
+			margin: 65px 0 0 0;
             display: block;
         }
         footer .copyright 
         {
-            color: var(--color);
+            color: var(--bg-color);
 			list-style: none;
 			font-family: 'Arial';
             text-align: center;
         }
         footer  p
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
             font-size: 1em;
@@ -730,7 +734,7 @@ $(document).ready(function(){
 		}
 		footer  h1
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
 			font-family: 'Arial';
@@ -752,9 +756,9 @@ $(document).ready(function(){
         /* CSS info@ufveats.es */
         footer .copyright a
         {
-            color: var(--color);
+            color:var(--bg-color);
 			font-family: 'Arial';
-			padding: 0px 52px;
+			padding: 0px 34px;
 			font-weight: 400;
         }
         footer .copyright a:hover
@@ -764,7 +768,7 @@ $(document).ready(function(){
         /*  */
         footer .copyright table 
         {
-          border: 1px solid var(--color);
+          border: 1px solid var(--bg-color);
           margin-left: auto;
           margin-right: auto;
         }
@@ -776,17 +780,17 @@ $(document).ready(function(){
         }
         footer .eslogan li
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
-            font-size: 1em;
+            font-size: 1.5em;
             font-family: 'Arial';
         }
 		footer .email{
 			font-size: 36px;
 			padding: 6px 10px;
-			border-right: 1px solid var(--color);
-			color: var(--color);
+			border-right: 1px solid var(--bg-color);
+			color: var(--bg-color);
 		}
         </style>
     <footer id="footer">
@@ -816,4 +820,5 @@ $(document).ready(function(){
     </footer>
 </body>
 <script src="assets/bt/js/bootstrap.min.js"></script>
+<script src="assets/js/smooth-scroll.js"></script>
 </html>
