@@ -1,17 +1,16 @@
-
 <header class="header sticky-top">
     <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
       <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
-      	<img id="mylogo" src="../media/img/logo1.png">
+      	<img id="mylogo" src="../media/img/logo2.png">
       </a>
 
       <button class="navbar-toggler align-self-start mt-3" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
 
-	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
-		<div  class="p-3 w-100 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
+	<div style="background:var(--color);" class="collapse navbar-collapse" id="navbarText">
+		<div  class="p-3 w-100 align-items-center d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
         <ul class="navbar-nav d-flex align-items-center">
           <li class="nav-item active">
             <a class="invert nav-link" href="../">Inicio</a>
@@ -23,10 +22,10 @@
             <a class="invert nav-link" href="#" data-toggle="modal" data-target="#myModal">Contacto</a>
           </li>
           <li class="nav-item">
-				  <a class="nav-link "href="../login/"><i class="invert icono far fa-user mr-1 ml-1"></i></a>
+				  <a class="nav-link " href="../login/" ><i class="invert icono far fa-user mr-1 ml-1"></i></a>
 			    </li>
 		</ul>
-        <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+        <button type="button" id="dark-mode" class="ml-lg-1 btn btn-outline-dark"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
 	</div>
 	</div>
    </nav>
@@ -38,7 +37,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Contacto</h4>
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="btn close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
                             <form action="../assets/mod/contact.php" method="post" novalidate class="needs-validation">

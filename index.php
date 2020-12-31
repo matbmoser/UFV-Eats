@@ -118,14 +118,14 @@
     <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
       <a class="navbar-brand order-0 order-lg-0 ml-lg-0 ml-2 mr-auto" href="#">
-      	<img id="mylogo" src="media/img/logo1.png">
+      	<img id="mylogo" src="media/img/logo2.png">
       </a>
 
       <button class="navbar-toggler align-self-start mt-3" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
 
-	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
+	<div style="background:var(--color);" class="collapse navbar-collapse" id="navbarText">
 		<div  class="p-3 w-100 align-items-center d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
 		<div class="d-flex w-100 align-items-center justify-content-center">
           <div class="autocomplete">
@@ -147,7 +147,7 @@
 				  <a class="nav-link " href="./login/" ><i class="invert icono far fa-user mr-1 ml-1"></i></a>
 			    </li>
 		</ul>
-        <button type="button" id="dark-mode" class="ml-1 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+        <button type="button" id="dark-mode" class="ml-lg-1 btn btn-outline-dark"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
 	</div>
 	</div>
    </nav>
@@ -710,23 +710,23 @@ $(document).ready(function(){
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
         footer 
         {
-            padding: 8em 0 10px 0;
-			background: var(--bg-color);
-			border-top: 1px solid var(--color);
+            padding: 8em 0 20px 0;
+			background: var(--color);
+			border-top: 1px solid var(--bg-color);
 			text-align: center;
-			margin: 65px 26px 0 26px;
+			margin: 65px 0 0 0;
             display: block;
         }
         footer .copyright 
         {
-            color: var(--color);
+            color: var(--bg-color);
 			list-style: none;
 			font-family: 'Arial';
             text-align: center;
         }
         footer  p
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
             font-size: 1em;
@@ -734,7 +734,7 @@ $(document).ready(function(){
 		}
 		footer  h1
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
 			font-family: 'Arial';
@@ -756,7 +756,7 @@ $(document).ready(function(){
         /* CSS info@ufveats.es */
         footer .copyright a
         {
-            color: var(--color);
+            color:var(--bg-color);
 			font-family: 'Arial';
 			padding: 0px 34px;
 			font-weight: 400;
@@ -768,7 +768,7 @@ $(document).ready(function(){
         /*  */
         footer .copyright table 
         {
-          border: 1px solid var(--color);
+          border: 1px solid var(--bg-color);
           margin-left: auto;
           margin-right: auto;
         }
@@ -780,7 +780,7 @@ $(document).ready(function(){
         }
         footer .eslogan li
         {
-            color: var(--color);
+            color: var(--bg-color);
             list-style: none;
             text-align: center;
             font-size: 1.5em;
@@ -789,8 +789,8 @@ $(document).ready(function(){
 		footer .email{
 			font-size: 36px;
 			padding: 6px 10px;
-			border-right: 1px solid var(--color);
-			color: var(--color);
+			border-right: 1px solid var(--bg-color);
+			color: var(--bg-color);
 		}
         </style>
     <footer id="footer">

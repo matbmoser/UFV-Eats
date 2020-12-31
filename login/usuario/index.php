@@ -297,21 +297,21 @@ padding:0;
 margin:0;
 }
 .logout{
-background:var(--bg-color)!important; color:var(--color);
-border-color:var(--color);
+background:var(--color)!important; color:var(--bg-color);
+border-color:var(--bg-color);
 }
 .logout:hover{
-background:var(--color)!important; color:var(--bg-color);
+background:var(--bg-color)!important; color:var(--color);
 }
 
     </style>
 </head>
 <body>
     <script src="../../assets/js/dark-mode.js"></script>
-<header class="header">
-    <nav class="navbar navbar-expand-lg sticky-top shadow">
+<header class="header sticky-top">
+    <nav class="navbar navbar-expand-lg shadow">
       <a class="navbar-brand" href="../../">
-      	<img id="mylogo" src="../../media/img/logo1.png">
+      	<img id="mylogo" src="../../media/img/logo2.png">
       </a>
       <button class="navbar-toggler" style="border-radius: 0!important;" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -332,7 +332,7 @@ background:var(--color)!important; color:var(--bg-color);
             <button type="button" class="ml-3 logout btn btn-light" onclick="window.location.href= '../index.php?result=00270cf63f93c307e7e9d2cc7e639fa50aca58eeb64be3266a798c9c19535219'"><i class="fas fa-sign-out-alt"></i> <span>Sign out</span></button>
             </li>
             <li class="nav-item">
-            	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-light"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
+            	<button type="button" id="dark-mode" class="ml-3 btn btn-outline-dark"><i class="fas fa-sun mr-1"></i><span>Light Mode</span></button>
           	</li>
         </ul>
     </div>

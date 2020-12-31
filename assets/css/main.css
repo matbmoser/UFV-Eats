@@ -11,27 +11,27 @@ body {
     transition: all .25s ease;
 }
 .invert{
-  color: var(--color)!important;
+  color: var(--bg-color)!important;
   transition: all .25s ease;
 }
 .header{
-  background-color:var(--bg-color)!important;
-  color: var(--color)!important;
+  background-color:var(--color)!important;
+  color: var(--bg-color)!important;
 }
 .invert:hover{
   opacity: 0.5;
   transition: all .25s ease;
 }
 .invertbd{
-  color: var(--color)!important;
-  background: var(--bg-color)!important;
-  border:1px solid var(--color)!important;
-  transition: all .25s ease;
-}
-.invertbd:hover{
   color: var(--bg-color)!important;
   background: var(--color)!important;
   border:1px solid var(--bg-color)!important;
+  transition: all .25s ease;
+}
+.invertbd:hover{
+  color: var(--color)!important;
+  background: var(--bg-color)!important;
+  border:1px solid var(--color)!important;
   transition: all .25s ease;
 }
 .body{
@@ -54,14 +54,14 @@ body {
   box-shadow: none!important;
 }
 .navbar-toggler{
-  color: var(--color)!important;
+  color: var(--bg-color)!important;
   transition: all .25s ease;
   border-radius: none!important;
   margin: 5px!important;
   padding: 10px 14px!important;
 }
 .navbar-toggler:hover{
-  background:var(--color)!important; color:var(--bg-color)!important;  
+  background:var(--bg-color)!important; color:var(--color)!important;  
   transition: all .25s ease;
   border-radius: none!important;
 }
@@ -180,9 +180,13 @@ body {
     width: 12em;
     margin-left: 8px;
 }
-#mylogo{
+.navbar-brand #logo{
     height: 50px;
     margin-left: 10px;
+}
+.navbar-brand #mylogo{
+  height: 50px;
+  margin-left: 10px;
 }
 
 .input-group{
@@ -314,7 +318,7 @@ input[type=submit] {
     text-align: center;
     }
   }
-#logo{
+  .form-signin #logo{
   width: 250px;
   height: 65px;
   margin: 50px 0;
@@ -323,7 +327,7 @@ input[type=submit] {
   margin:5px!important;
 }
 @media screen and (max-width: 320px) {
-  #logo{
+  .form-signin #logo{
     width: 190px;
     height: 50px;
     margin: 42px 0px 22px 0px;
@@ -334,9 +338,12 @@ input[type=submit] {
   .busqueda{
     width:auto;
   }
+  .maintitle{
+    font-size: 4em;
+  }
 }
 @media (min-width: 321px) and (max-width: 575.90px) {
-  #logo{
+  .form-signin #logo{
     width: 250px;
     height: 65px;
     margin: 56px 0px 40px 0px;
@@ -347,9 +354,12 @@ input[type=submit] {
   .busqueda{
     width:auto;
   }
+  .maintitle{
+    font-size: 4em;
+  }
 }
 @media (min-width: 576px) and (max-width:767.98px) {
-  #logo{
+  .form-signin #logo{
     width: 250px;
     height: 65px;
     margin: 22px 0px 40px 0px;
@@ -357,9 +367,12 @@ input[type=submit] {
   .busqueda{
     width:auto;
   }
+  .maintitle{
+    font-size: 4.5em;
+  }
 }
 @media (min-width: 760px) and (max-width:991.98px) {
-  #logo{
+  .form-signin #logo{
     width: 250px;
     height: 65px;
     margin: 22px 0px 40px 0px;
@@ -369,7 +382,7 @@ input[type=submit] {
   }
 }
 @media (min-width: 992px) and (max-width:1199.98px) {
-  #logo{
+  .form-signin #logo{
     width: 250px;
     height: 65px;
     margin: 22px 0px 40px 0px;
