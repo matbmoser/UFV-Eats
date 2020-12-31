@@ -1,4 +1,4 @@
-<?include("../assets/mod/getproductos.php");?>
+
 <header class="header sticky-top">
     <nav class="navbar navbar-expand-lg shadow justify-content-sm-start">
 
@@ -12,12 +12,6 @@
 
 	<div style="background:var(--bg-color);" class="collapse navbar-collapse" id="navbarText">
 		<div  class="p-3 w-100 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end">
-		<div class="d-flex w-100 align-items-center justify-content-center">
-          <div class="autocomplete">
-            <input class="form-control mr-sm-1" id="myInput" autocomplete="off" type="text" placeholder="Búsqueda producto" style="width:350px;">
-          </div>
-            <button class="invertbd btn" style="margin:0!important;" data-target="producto" id="search" data-toggle='modal'><i class="fas fa-search"></i></button>
-        </div>
         <ul class="navbar-nav d-flex align-items-center">
           <li class="nav-item active">
             <a class="invert nav-link" href="../">Inicio</a>

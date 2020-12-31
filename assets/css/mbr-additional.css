@@ -75,10 +75,7 @@ body {
   }
 }
 /* Buttons */
-.btn {
-  padding: 1rem 3rem;
-  border-radius: 3px;
-}
+
 .btn-sm {
   padding: 0.6rem 1.5rem;
   border-radius: 3px;
@@ -87,10 +84,7 @@ body {
   padding: 1rem 3rem;
   border-radius: 3px;
 }
-.btn-lg {
-  padding: 1.2rem 3.2rem;
-  border-radius: 3px;
-}
+
 .bg-primary {
   background-color: #149dcc !important;
 }
